@@ -1,0 +1,149 @@
+
+.masterbrain_container {
+    background: #44803F;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.flip_card {
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #44803F;
+    perspective: 1000px;
+  }
+  
+  .flip_card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .rotate {
+    transform: rotateY(180deg);
+  }
+  
+  .flip_card_front, .flip_card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-shadow: 2px 2px 4px #000000;
+  }
+  
+  .flip_card_front {
+    background: radial-gradient(#44803F, #146152);
+    color: black;
+    caret-color: transparent;
+  }
+  
+  .flip_card_back {
+    background-color: #B4CF66;
+    color: white;
+    caret-color: transparent;
+    display: flex;
+    justify-content: center;
+    transform: rotateY(180deg);
+  }
+  
+  .card_content {
+    margin: auto;
+    font-size: 300%;
+  }
+  
+  .card_row {
+    display: flex
+  }
+  
+  .card_field {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    margin-top: 35px;
+  }
+  
+  .modal {
+    position: fixed;
+    z-index: 1;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: #FF5A33;
+    box-shadow: 2px 2px 4px #000000;
+  }
+  
+  .modal_open {
+    display: block;
+  }
+  
+  .modal_close {
+    display: none;
+  }
+  
+  .modal_content {
+        padding-right: 10%;
+      padding-left: 10%;
+      padding-top: 15%;
+    color: #FFFFFF;
+    font-family: cursive;
+    text-align: center;
+  }
+  
+  .modal_button {
+    background: #FFEC5C;
+    font-family: cursive;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    background: #FFEC5C;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0px;
+    box-shadow: 2px 2px 4px #000000;
+  }
+  
+  .counter {
+    font-family: cursive;
+  }
+  
+  .counter_content {
+    margin-top: 1px;
+    margin-left: 5px;
+  }
+  
+  .collection_select:focus-visible{
+    outline: transparent;
+  }
+  
+  .collection_select {
+      background: #FFEC5C;
+      font-family: cursive;
+      font-size: x-large;
+      border: transparent;
+      margin-top: 1px;
+      height: 80%;
+  }
+  
+  .select_container {
+    font-family: cursive;
+    display: flex;
+  }
+  
+  .select_label {
+    margin-top: 1px;
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+  
+  .collection_label {
+    display: contents;
+  }
+  
