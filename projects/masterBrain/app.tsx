@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { useEffect } from "react";
 import GameContextProvider from "./components/GameContext";
 import reducer from "./reducer";
 import withEnhancer from "./withEnchancer";

@@ -14,6 +14,7 @@ export default function Home() {
       <ul>
       <li>
         <Link href="/projects/master_brain">MASTER BRAIN</Link>
+        <Link href="/projects/fifteen_game">FIFTEEN GAME</Link>
       </li>
     </ul>
     </div>

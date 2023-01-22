@@ -63,7 +63,7 @@
     display: flex;
     justify-content: center;
     vertical-align: middle;
-    margin-top: 35px;
+    margin-top: 7%;
   }
   
   .modal {
@@ -147,3 +147,10 @@
     display: contents;
   }
   
+  .home_run {
+    top: 13px;
+    position: absolute;
+    left: 90%;
+    display: flex;
+    font-family: cursive;
+  }
