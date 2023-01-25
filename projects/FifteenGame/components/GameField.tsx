@@ -1,16 +1,35 @@
+
 import styles from '../../../styles/FifteenGame.module.css'
 import Cell from './Cell';
+import { TNumArrayDoubleDim } from "../types" 
+import { useEffect } from 'react';
 
-const arr = [1,2]
+const GameField = (props: {
+    handleClick: Function,
+    gameArray: TNumArrayDoubleDim
+}) => {
 
-const GameField = () => {
+    const flat: JSX.Element[] = [];
 
+    const cellArray = props.gameArray.reduce((flat, row, rowIndex) => {
 
+        const cells = row.map((col, colIndex) => {
+               
+            return(<Cell key={rowIndex.toString() + colIndex.toString()}
+                number={col}
+                row={rowIndex}
+                col={colIndex}
+                handleClick={props.handleClick} />)
+        });
+
+        return flat.concat(cells)
+
+    }, flat)
+    
+   
     return(
         <div className={styles.game_field}>
-            {
-                arr.map((item,index) => <Cell key={index} number={item} chid="asd"/>)
-            }
+            {cellArray}
         </div>
     )
 }

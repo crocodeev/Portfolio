@@ -11,14 +11,40 @@
   }
   
   .real_cell{
+    color: rgb(255, 255, 255);
+    position: absolute;
+    border-radius: 10px;
+    background: #f8414e;
+    height: 96px;
+    width: 96px;
+    margin: 0px;
+    border: 3px inset white;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  .null_cell{
+    pointer-events: none;
     position: relative;
     border-radius: 10px;
     border-radius: 10px;
-    background: #305;
-    height: 98px;
-    width: 98px;
+    background: transparent;
+    height: 99px;
+    width: 99px;
     margin: 0px;
-    border: 2px solid white;
+    border: 2px solid transparent;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
   
   .game_field{
@@ -41,18 +67,26 @@
     display: block;
     height: 400px;
     width: 400px;
-    background: #fff;
+    background: #ffdcde;
+  }
+
+  .dummy_background{
+    background-color: #ffdcde;
+    z-index: -2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
   
   .dummy_cell{
     border-radius: 10px;
     z-index: -1;
     border-radius: 10px;
-    background: #e0ac85;
+    background: #ffb2b6;
     height: 99px;
     width: 99px;
     margin: 0px;
-    box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #ad1544;
     border: 1px solid white;
   }
   
@@ -61,3 +95,4 @@
   .dummy_row{
     display: flex;
   }
+

@@ -9,7 +9,7 @@ type TEtalon = {
     fail: TNumArrayDoubleDim
 }
 
-export type TNumArrayDoubleDim = Array<Array<Number>>
+export type TNumArrayDoubleDim = Array<Array<number>>
 
 export enum EDirections {
     UP = 1,

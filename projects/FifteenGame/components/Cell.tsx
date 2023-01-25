@@ -2,59 +2,18 @@ import styles from '../../../styles/FifteenGame.module.css'
 import React, { useEffect, useState, useRef } from 'react';
 import { EDirections, TCoordinate } from '../types';
 
-const Cell = (props: { chid: string | undefined, number: number }) => {
+const Cell = (props: { 
+    number: number, 
+    row: number,
+    col: number
+    handleClick: Function }) => {
     
-    const coordinates = useRef({ x:0, y:0, id: props.chid});
+    const coordinates = useRef({ x:0, y:0});
+    const cellRef = useRef(null);
 
-    useEffect(() => {
-        console.log('RENDER');
-    })
-
-    const animate = (direction: EDirections, 
-                    element: HTMLElement,
-                    coordinates: TCoordinate) => {
-
-        switch (direction) {
-            case 1:
-            element.animate(
-                [
-                    { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
-                    { transform: `translateY(${coordinates.y - 100}px) translateX(${coordinates.x}px)` } 
-                ],
-                  { duration: 200, fill: "forwards" }
-            )    
-                break;
-            case 2:
-                element.animate(
-                    [
-                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
-                        { transform: `translateY(${coordinates.y + 100}px) translateX(${coordinates.x}px)` } 
-                    ],
-                        { duration: 200, fill: "forwards" }
-                )    
-                    break;
-            case 3:
-                element.animate(
-                    [
-                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
-                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x - 100}px)` } 
-                    ],
-                        { duration: 200, fill: "forwards" }
-                    )    
-                    break;
-            case 4:
-                element.animate(
-                    [
-                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
-                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x + 100}px)` } 
-                    ],
-                        { duration: 200, fill: "forwards" }
-                    )    
-                    break;                
-            default:
-                break;
-        }
-
+    
+    const computeInizialPosition = (row: number, col: number) => {    
+        return { left: `${col * 100}px`, top: `${row * 100}px`}  
     }
 
     const getRelativePosition = (el: any) => {
@@ -69,40 +28,104 @@ const Cell = (props: { chid: string | undefined, number: number }) => {
             return transformString.split(/, |\)/).slice(4,6)
         }
     }
+    
 
-    const handleClick = (event: any) => {
+    const animate = (direction: EDirections, 
+                    element: HTMLElement | null,
+                    coordinates: TCoordinate) => {    
+                        
+        const currentCoordinates = getRelativePosition(cellRef.current)                
 
-        const currentCoordinates = getRelativePosition(event.target);
+        switch (direction) {
+            case 1:
+                element?.animate(
+                    [
+                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
+                        { transform: `translateY(${coordinates.y - 100}px) translateX(${coordinates.x}px)` } 
+                    ],
+                    { duration: 200, fill: "forwards" }
+                )
 
-        console.log("current coordinates");
-        console.log(currentCoordinates);
-        
-        /*
-        event.target.animate([
-            { transform: `translateY(${coordinates.current.y}px) translateX(${coordinates.current.x}px)` }, 
-            { transform: `translateY(${coordinates.current.y + 100}px) translateX(${coordinates.current.x}px)` } 
-          ],
-          { duration: 200, fill: "forwards" })*/
+                if(currentCoordinates.length){
+                    coordinates.y = + currentCoordinates[1] - 100
+                }else{
+                    coordinates.y = -100
+                }
 
-        animate(EDirections.UP, event.target, coordinates.current)  
-        
+                break;
+            case 2:
+                element?.animate(
+                    [
+                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
+                        { transform: `translateY(${coordinates.y + 100}px) translateX(${coordinates.x}px)` } 
+                    ],
+                        { duration: 200, fill: "forwards" }
+                )
+                
+                if(currentCoordinates.length){
+                    coordinates.y = + currentCoordinates[1] + 100
+                }else{
+                    coordinates.y = 100
+                }
 
-        if(currentCoordinates.length){
-            coordinates.current.y = + currentCoordinates[0] + 100
-        }else{
-            coordinates.current.y = 100
-        }  
+                    break;
+            case 3:
+                element?.animate(
+                    [
+                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
+                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x - 100}px)` } 
+                    ],
+                        { duration: 200, fill: "forwards" }
+                    )
 
-        console.log(coordinates.current);
-        
-        
+                if(currentCoordinates.length){
+                    coordinates.x = + currentCoordinates[0] - 100
+                }else{
+                    coordinates.x = -100
+                } 
+
+                    break;
+            case 4:
+                element?.animate(
+                    [
+                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x}px)` }, 
+                        { transform: `translateY(${coordinates.y}px) translateX(${coordinates.x + 100}px)` } 
+                    ],
+                        { duration: 200, fill: "forwards" }
+                    )    
+                if(currentCoordinates.length){
+                    coordinates.x = + currentCoordinates[0] + 100
+                }else{
+                    coordinates.x = 100
+                }
+                    break;                
+            default:
+                break;
+        }
+
+    }
+
+
+    const handleClick = () => {
+
+        props.handleClick(props.number, (direction: EDirections) => {
+            animate(direction, cellRef.current, coordinates.current)
+        })
+
     }
 
     return(
-        <div className={styles.real_cell} 
-        id={props.chid} 
+        <div className={props.number ? styles.real_cell : styles.null_cell} 
+        style={computeInizialPosition(props.row, props.col)}
+        ref={cellRef}
         onClick={handleClick}>
+        {
+            props.number ?
             <h1>{props.number}</h1>
+            :
+            null
+        }    
+            
         </div>
     )
 } 
