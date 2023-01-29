@@ -1,6 +1,6 @@
 import styles from "../../../styles/FifteenGame.module.css"
 
-const NewGame = (props: { callback: Function}) => {
+const NewGame = (props: { callback: (event: React.MouseEvent<HTMLButtonElement> | undefined) => void }) => {
 
     return(<button
     onClick={props.callback}
