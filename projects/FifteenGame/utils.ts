@@ -1,4 +1,5 @@
-import { TNumArrayDoubleDim } from "./types";
+import { TNumArrayDoubleDim, EResult } from "./types";
+import { win, fail } from "./constants";
 
 const predicate = (a: number,b: number) => {
     return Math.random() - 0.5;
@@ -22,9 +23,20 @@ export const randomInitialArray = (): TNumArrayDoubleDim => {
     return doubleDimensional;
   }
 
-export const isWinner = (a: TNumArrayDoubleDim, b: TNumArrayDoubleDim) => {
-    let result = a.every((el,i) => a[i].every((el,j) => el === b[i][j]));
-     return result;
+export const isWinner = (a: TNumArrayDoubleDim ) => {
+    const isWin = a.every((el,i) => a[i].every((el,j) => el === win[i][j]));
+
+    if(!isWin){
+
+      const isFail = a.every((el,i) => a[i].every((el,j) => el === fail[i][j]));
+      if(isFail){
+        return EResult.FAIL
+      }
+
+      return EResult.RESUME
+    }
+
+     return EResult.WIN
    }
    
 export const currentPosition = (number: number, gameArray: TNumArrayDoubleDim) => {
@@ -56,6 +68,3 @@ export const mutateArray = (arr: TNumArrayDoubleDim,
   return arr                            
 }
 
-export const getDirection = () => {
-  
-}

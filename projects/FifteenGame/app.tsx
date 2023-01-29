@@ -1,34 +1,33 @@
 import { useState, useRef } from "react";
 import DummyField from "./components/DummyField";
 import GameField from "./components/GameField";
-import { randomInitialArray, currentPosition, mutateArray } from "./utils";
-import { win, fail } from "./constants";
-import { EDirections } from "./types";
+import Modal from "./components/Modal";
+import { randomInitialArray, currentPosition, mutateArray, isWinner } from "./utils";
+import { EDirections, EResult } from "./types";
 import styles from "../../styles/FifteenGame.module.css";
+import Controls from "./components/Controls";
 
 
 const App = () => {
 
-    const exgameArray = randomInitialArray();
-    const gameArray = useRef(randomInitialArray());
+    const initialGameArray = randomInitialArray();
 
-    const [state, setState] = useState({
-        current: exgameArray,
-        etalons: {
-            win: win,
-            fail: fail
-        },
-        steps:0
+    const [gameState, setGameState] = useState({
+        gameArray: initialGameArray,
+        result: EResult.RESUME,
     })
+
+    const gameArray = useRef(initialGameArray)
+
+    const counter = useRef({})
+
 
     const cellClickHandler = (number: number, callback: Function) => {
 
         if(!number){
-            console.log("ZERO FIELD");
             return
         }
-        console.log("NUMBER");
-        console.log(number);
+
         const cell = currentPosition(number, gameArray.current);
         const zero: { x: undefined|number, y: undefined|number} = { x: undefined, y: undefined};
         let direction: EDirections | undefined = undefined
@@ -53,24 +52,60 @@ const App = () => {
             direction = EDirections.DOWN 
         }
         
-        console.log(direction)
-        console.log(zero)
         if(direction){
             
-            console.log(gameArray.current);
             
-            const newArray = mutateArray(gameArray.current, zero, cell, number);
-            console.log(newArray);
-            
-            callback(direction);
+            const newArray = mutateArray(gameArray.current, zero, cell, number)
+            callback(direction)
+
+            counter.current.increase()
+
+            const result  = isWinner(newArray)
+
+            if(result === EResult.WIN){
+                setGameState((gameState) => {
+                    return {
+                        ...gameState,
+                        result: EResult.WIN
+                    }
+                })
+            }else if(result === EResult.FAIL){
+                setGameState((gameState) => {
+                    return {
+                        ...gameState,
+                        result: EResult.FAIL
+                    }
+                })
+            }
         
         }
         
     }
 
+    const newGameHandler = () => {
+        const initialGameArray = randomInitialArray();
+        gameArray.current = initialGameArray;
+
+        counter.current.reset()
+
+        setGameState((gameState) => {
+            return {
+                gameArray: initialGameArray,
+                result: EResult.RESUME,
+            }
+            
+        })
+
+
+    }
+
     return(
-        <>
+        <>  
             <div className={styles.dummy_background}></div>
+            <Modal result={gameState.result}/>
+            <Controls 
+            newGameCallback={newGameHandler}
+            counter={counter.current}/>
             <GameField 
             handleClick={cellClickHandler}
             gameArray={gameArray.current}/>

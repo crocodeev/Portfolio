@@ -1,6 +1,6 @@
 export type TState = {
-    current: TNumArrayDoubleDim,
-    etalons: TEtalon,
+    gameArray: TNumArrayDoubleDim,
+    result: EResult,
     steps: number
 }
 
@@ -16,6 +16,12 @@ export enum EDirections {
     DOWN,
     LEFT,
     RIGHT
+}
+
+export enum EResult {
+    WIN = 1,
+    FAIL = 2,
+    RESUME = 3,
 }
 
 export type TCoordinate = {

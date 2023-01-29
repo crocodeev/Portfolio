@@ -2,20 +2,20 @@
 import styles from '../../../styles/FifteenGame.module.css'
 import Cell from './Cell';
 import { TNumArrayDoubleDim } from "../types" 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const GameField = (props: {
     handleClick: Function,
-    gameArray: TNumArrayDoubleDim
+    gameArray: TNumArrayDoubleDim,
 }) => {
 
     const flat: JSX.Element[] = [];
-
+    
     const cellArray = props.gameArray.reduce((flat, row, rowIndex) => {
 
         const cells = row.map((col, colIndex) => {
                
-            return(<Cell key={rowIndex.toString() + colIndex.toString()}
+            return(<Cell key={rowIndex.toString() + col + Math.floor(Math.random()*1000)}
                 number={col}
                 row={rowIndex}
                 col={colIndex}
