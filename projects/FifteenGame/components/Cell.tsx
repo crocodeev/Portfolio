@@ -8,8 +8,6 @@ const Cell = (props: {
     col: number
     handleClick: Function }) => {
 
-    console.log("rendeer");
-    
     const coordinates = useRef({ x:0, y:0});
     const cellRef = useRef(null);
 

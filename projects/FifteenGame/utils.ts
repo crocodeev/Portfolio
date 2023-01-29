@@ -60,10 +60,10 @@ export const currentPosition = (number: number, gameArray: TNumArrayDoubleDim) =
 }
 
 export const mutateArray = (arr: TNumArrayDoubleDim,
-                            zeroPoisition: { x: number, y: number},
+                            zeroPoisition: { x: number | undefined, y: number | undefined},
                             currentPosition: {x: number, y: number},
                             number: number ) => {
-  arr[zeroPoisition.y].splice(zeroPoisition.x, 1, number);
+  arr[zeroPoisition.y || 0].splice(zeroPoisition.x || 0, 1, number);
   arr[currentPosition.y].splice(currentPosition.x, 1, 0);                            
   return arr                            
 }
