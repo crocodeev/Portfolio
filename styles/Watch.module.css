@@ -1,0 +1,8 @@
+.watch_container {
+    display: flex;
+    height: 200px;
+  }
+  
+.watch_container > svg {
+    margin: 5px;
+}
