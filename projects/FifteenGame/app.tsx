@@ -19,7 +19,10 @@ const App = () => {
 
     const gameArray = useRef(initialGameArray)
 
-    const counter = useRef({})
+    const counter = useRef({
+        increase: () => {},
+        reset: () => {}
+    })
 
 
     const cellClickHandler = (number: number, callback: Function) => {
