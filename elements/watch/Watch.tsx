@@ -53,7 +53,6 @@ const symbols = [
       }, 1000)
     },[])
     
-    
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>
         <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[time.currentTime[0]]}/>

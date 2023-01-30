@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### WHO I AM
 
-## Getting Started
+Graduated as a teacher of the Russian language and literature,
+started as a sound engineer on radio station,
+continued as a motion designer,
+now I have become a ...software developer, I believe
 
-First, run the development server:
+How it happened? 
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. to automate routine animation animation in after effect, I learned to write expression (AE use JS as expression language)
+2. then I automated some routine for me and colleagues using powershell.
+3. started managing servers at work
+4. took a JS course at LevelUp
+5. during the quarantine made PoC audio player on Electron JS and since then I
+    - have been working on this
+    - communicate with server-side developer team as product owner
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Skills
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- JS
+    - Electron JS (love & hate it)
+    - React
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+(a little bit, for specific tasks)
+- Python 
+- Powershell
+- Bash
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Achievements
 
-## Learn More
+- audio player, that use in malls
+- custom linux image for this player
+- notification telegram bot
+- webapp telegram bot for uploading image to the corporate cloud 
+- corporate wiki to share knowlege
 
-To learn more about Next.js, take a look at the following resources:
+## Goals
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ ] study rust and wasm
+- [ ] create game for zx-spectrum
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## passions
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

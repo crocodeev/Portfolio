@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Watch from '../elements/watch/Watch'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
@@ -11,6 +12,7 @@ export default function Home() {
       <div className={styles.mask}></div>
       <h1>ALEXANDER CROCODEEV</h1>
       <p>about me</p>
+      <Watch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
       <ul>
       <li>
         <Link href="/projects/master_brain">MASTER BRAIN</Link>
