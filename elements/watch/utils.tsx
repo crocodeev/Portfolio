@@ -20,7 +20,7 @@ const preciseTimer = (actionToRepeat: Function , interval: number) => {
 
 const getTime = () =>  {
     const time = new Date().toTimeString().split(' ')[0].slice(0,5);   
-    return time;
+    return time.map(item => Number.parseInt(item));
 }  
 
 export { preciseTimer, getTime }

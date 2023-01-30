@@ -52,6 +52,9 @@ const symbols = [
         
       }, 1000)
     },[])
+
+    console.log(typeof time.currentTime[0]);
+    
     
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>
