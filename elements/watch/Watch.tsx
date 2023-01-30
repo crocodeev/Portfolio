@@ -6,11 +6,11 @@ import { useEffect, useState } from "react"
 import styles from '../../styles/Watch.module.css'
 
 const symbols = [
-    [1,1,1,1,1,1,0],
-    [0,1,1,0,0,0,0],
-    [1,1,0,1,1,0,1],
-    [1,1,1,1,0,0,1],
-    [0,1,1,0,0,1,1],
+    [1,1,1,1,1,1,0], //0
+    [0,1,1,0,0,0,0], //1
+    [1,1,0,1,1,0,1], //2
+    [1,1,1,1,0,0,1], //3
+    [0,1,1,0,0,1,1], //4
     [1,0,1,1,0,1,1],
     [1,0,1,1,1,1,1],
     [1,1,1,0,0,0,0],
@@ -51,10 +51,7 @@ const symbols = [
   })
         
       }, 1000)
-    },[])
-
-    console.log(typeof time.currentTime[0]);
-    
+    },[])    
     
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>

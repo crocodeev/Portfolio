@@ -4,6 +4,9 @@ const Digit = ({segments,
     colorOn,
     colorOff}: TDigitProps) => {
 
+console.log(segments);
+        
+
 const on = {
 fill: colorOn, 
 filter:"url(#glow)"
