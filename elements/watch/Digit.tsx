@@ -1,11 +1,24 @@
 import { TDigitProps } from "./types"
 
-const Digit = ({segments,
+const Digit = ({digit,
     colorOn,
     colorOff}: TDigitProps) => {
 
-console.log(segments);
+    console.log("render")
         
+    const symbols = [
+        [1,1,1,1,1,1,0], //0
+        [0,1,1,0,0,0,0], //1
+        [1,1,0,1,1,0,1], //2
+        [1,1,1,1,0,0,1], //3
+        [0,1,1,0,0,1,1], //4
+        [1,0,1,1,0,1,1],
+        [1,0,1,1,1,1,1],
+        [1,1,1,0,0,0,0],
+        [1,1,1,1,1,1,1],
+        [1,1,1,1,0,1,1]
+        ]        
+
 
 const on = {
 fill: colorOn, 
@@ -16,6 +29,7 @@ const off = {
 fill: colorOff 
 }
 
+const segments = symbols[Number.parseInt(digit)]
 
 return(
 <svg viewBox="0,0,50,100">

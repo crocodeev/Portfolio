@@ -1,5 +1,5 @@
 export type TDigitProps = {
-    segments: Array<number>,
+    digit: string,
     colorOn: string,
     colorOff: string
 }

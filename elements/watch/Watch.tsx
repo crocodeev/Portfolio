@@ -5,19 +5,6 @@ import { getTime, preciseTimer } from "./utils"
 import { useEffect, useState } from "react"
 import styles from '../../styles/Watch.module.css'
 
-const symbols = [
-    [1,1,1,1,1,1,0], //0
-    [0,1,1,0,0,0,0], //1
-    [1,1,0,1,1,0,1], //2
-    [1,1,1,1,0,0,1], //3
-    [0,1,1,0,0,1,1], //4
-    [1,0,1,1,0,1,1],
-    [1,0,1,1,1,1,1],
-    [1,1,1,0,0,0,0],
-    [1,1,1,1,1,1,1],
-    [1,1,1,1,0,1,1]
-  ]
-
  const Watch =({
     colorOn,
     colorOff,
@@ -35,6 +22,8 @@ const symbols = [
         setTime((time) => {
         
       const newTime = getTime();
+      
+      console.log(newTime);
       
       
       if(newTime > time.currentTime){
@@ -55,11 +44,11 @@ const symbols = [
     
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[0])]}/>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[1])]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[0]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[1]}/>
         <Separator colorOn={colorOn} colorOff={colorOff} state={time.separator}/>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[3])]}/>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[4])]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[3]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[4]}/>
       </div>
     )
   } 
