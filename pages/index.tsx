@@ -4,12 +4,15 @@ import Watch from '../elements/watch/Watch'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
+/*
+<div className={styles.line}></div>
+<div className={styles.mask}></div>
+ */
 
 export default function Home() {
   return (
     <div className={styles.home_container}>
-      <div className={styles.line}></div>
-      <div className={styles.mask}></div>
+      
       <h1>ALEXANDER CROCODEEV</h1>
       <p>about me</p>
       <Watch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
