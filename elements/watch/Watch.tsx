@@ -58,11 +58,11 @@ const symbols = [
     
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[time.currentTime[0]]}/>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[time.currentTime[1]]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[0])]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[1])]}/>
         <Separator colorOn={colorOn} colorOff={colorOff} state={time.separator}/>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[time.currentTime[3]]}/>
-        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[time.currentTime[4]]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[3])]}/>
+        <Digit colorOn={colorOn} colorOff={colorOff} segments={symbols[Number.parseInt(time.currentTime[4])]}/>
       </div>
     )
   } 

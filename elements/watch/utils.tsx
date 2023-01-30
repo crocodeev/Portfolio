@@ -19,8 +19,10 @@ const preciseTimer = (actionToRepeat: Function , interval: number) => {
   }
 
 const getTime = () =>  {
-    const time = new Date().toTimeString().split(' ')[0].slice(0,5);   
-    return time.map(item => Number.parseInt(item));
+    const time = new Date().toTimeString().split(' ')[0].slice(0,5);
+    console.log(time);
+       
+    return time
 }  
 
 export { preciseTimer, getTime }
