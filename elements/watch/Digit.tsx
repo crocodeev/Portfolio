@@ -4,8 +4,6 @@ import { TDigitProps } from "./types"
 const Digit = ({digit,
     colorOn,
     colorOff}: TDigitProps) => {
-
-    console.log("render")
         
     const symbols = [
         [1,1,1,1,1,1,0], //0
@@ -19,7 +17,7 @@ const Digit = ({digit,
         [1,1,1,1,1,1,1],
         [1,1,1,1,0,1,1]
         ]        
-
+        
 
 const on = {
 fill: colorOn, 
@@ -32,27 +30,11 @@ fill: colorOff
 
 const segments = symbols[Number.parseInt(digit)]
 
+console.log(segments);
+
+
 return(
 <svg viewBox="0,0,50,100">
-
-<defs>
-<filter id="glow" height="300%" width="300%" x="-75%" y="-75%">
-
-    <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="thicken" />
-
-    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blurred" />
-
-    <feFlood floodColor={colorOn} result="glowColor" />
-
-    <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
-
-    <feMerge>
-        <feMergeNode in="softGlow_colored"/>
-        <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-</filter>
-</defs>
-
 
 <g>
 <polygon  style={segments[0] ? on : off} points="8,0 42,0 45,2 40,10 10,10 5,2"/>
@@ -76,3 +58,24 @@ return(
 const MemoizedDigit = memo(Digit)
 
 export default MemoizedDigit
+
+
+/**
+ * <defs>
+<filter id="glow" height="300%" width="300%" x="-75%" y="-75%">
+
+    <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="thicken" />
+
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blurred" />
+
+    <feFlood floodColor={colorOn} result="glowColor" />
+
+    <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
+
+    <feMerge>
+        <feMergeNode in="softGlow_colored"/>
+        <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+</filter>
+</defs>
+ */
