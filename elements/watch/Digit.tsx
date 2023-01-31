@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { TDigitProps } from "./types"
 
 const Digit = ({digit,
@@ -72,4 +73,6 @@ return(
 </svg>)
 }
 
-export default Digit
+const MemoizedDigit = memo(Digit)
+
+export default MemoizedDigit
