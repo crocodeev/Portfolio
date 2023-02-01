@@ -4,6 +4,9 @@ import { TDigitProps } from "./types"
 const Digit = ({digit,
     colorOn,
     colorOff}: TDigitProps) => {
+
+    console.log(digit);
+        
         
     const symbols = [
         [1,1,1,1,1,1,0],
@@ -20,17 +23,18 @@ const Digit = ({digit,
         
 
 const on = {
-fill: colorOn, 
-filter:"url(#glow)"
+fill: colorOn,
+filter: `drop-shadow(1px 1px 1px ${colorOn})`
 }
 
 const off = {
 fill: colorOff 
 }
 
-const segments = symbols[Number.parseInt(digit)]
+console.log({ on, off});
 
-console.log(segments);
+
+const segments = symbols[Number.parseInt(digit)]
 
 
 return(
@@ -59,6 +63,7 @@ const MemoizedDigit = memo(Digit)
 
 export default MemoizedDigit
 
+export { Digit }
 
 /**
  * <defs>

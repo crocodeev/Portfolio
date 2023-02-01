@@ -1,5 +1,6 @@
 .watch_container {
     display: flex;
+    filter: drop-shadow(2px 4px 6px black);
     height: 200px;
   }
   

@@ -6,8 +6,7 @@ const Separator = ({state,
 
     
 const on = {
-fill: colorOn, 
-filter:"url(#glow)"
+fill: colorOn
 }
 
 const off = {

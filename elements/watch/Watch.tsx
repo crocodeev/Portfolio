@@ -1,7 +1,6 @@
 import { TWatchProps } from "./types"
 import MemoizedDigit from "./Digit"
 import Separator from "./Separator"
-import Filter from "./Filter"
 import { getTime, preciseTimer } from "./utils"
 import { useEffect, useState } from "react"
 import styles from '../../styles/Watch.module.css'
@@ -12,9 +11,12 @@ import styles from '../../styles/Watch.module.css'
     skew
   }: TWatchProps) =>  {
     
+    const currentTime = getTime();
+    console.log(currentTime);
+    
     
     const [time, setTime] = useState({
-      currentTime: getTime(), 
+      currentTime: currentTime, 
       separator: true})
     
     useEffect(() => {
@@ -42,32 +44,11 @@ import styles from '../../styles/Watch.module.css'
     
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>
-        <svg viewBox="0,0,50,100">
-          
-        <defs>
-<filter id="glow" height="300%" width="300%" x="-75%" y="-75%">
-
-    <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="thicken" />
-
-    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blurred" />
-
-    <feFlood floodColor={colorOn} result="glowColor" />
-
-    <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow_colored" />
-
-    <feMerge>
-        <feMergeNode in="softGlow_colored"/>
-        <feMergeNode in="SourceGraphic"/>
-    </feMerge>
-</filter>
-</defs>
-
         <MemoizedDigit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[0]}/>
         <MemoizedDigit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[1]}/>
         <Separator colorOn={colorOn} colorOff={colorOff} state={time.separator}/>
         <MemoizedDigit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[3]}/>
         <MemoizedDigit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[4]}/>
-        </svg>
       </div>
     )
   } 
