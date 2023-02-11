@@ -22,7 +22,7 @@ How it happened?
     - Electron JS (love & hate it)
     - React
 
-(a little bit, for specific tasks)
+- Other (a little bit, for specific tasks)
 - Python 
 - Powershell
 - Bash

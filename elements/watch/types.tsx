@@ -15,3 +15,7 @@ export type TWatchProps = {
     colorOff: string,
     skew: string
 }
+
+export type TFilter = {
+    colorOn: string
+}

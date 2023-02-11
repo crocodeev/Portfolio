@@ -4,10 +4,7 @@ import { TDigitProps } from "./types"
 const Digit = ({digit,
     colorOn,
     colorOff}: TDigitProps) => {
-
-    console.log(digit);
-        
-        
+    
     const symbols = [
         [1,1,1,1,1,1,0],
         [0,1,1,0,0,0,0],
@@ -24,14 +21,12 @@ const Digit = ({digit,
 
 const on = {
 fill: colorOn,
-filter: `drop-shadow(1px 1px 1px ${colorOn})`
+filter: "url(#glow)"
 }
 
 const off = {
 fill: colorOff 
 }
-
-console.log({ on, off});
 
 
 const segments = symbols[Number.parseInt(digit)]

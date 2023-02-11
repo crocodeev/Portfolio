@@ -7,3 +7,7 @@
 .watch_container > svg {
     margin: 5px;
 }
+
+.filter {
+  display: none;
+}

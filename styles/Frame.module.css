@@ -1,0 +1,107 @@
+
+.frame_label_top {
+    background-color: hsla(128, 100%, 24%);
+    font-size: 0.92rem;
+    display: inline-block;
+    padding: 0.125em 0.75em;
+    padding-right: 2em;
+    letter-spacing: 0.065em;
+    line-height: 1;
+    text-transform: uppercase;
+    vertical-align: bottom; /* inline-block fix */
+    clip-path: polygon(
+      0.25em 0,
+      calc(100% - 1em) 0,
+      100% 100%,
+      0.33em 100%,
+      0 100%,
+      0 0.25em
+    );
+  }
+
+.frame_label_bottom{
+  background-color: hsla(128, 100%, 24%);
+  font-size: 0.92rem;
+  display: inline-block;
+  position: relative;
+  left: 0.16em;
+  padding: 0.125em 0.75em;
+  padding-right: 2em;
+  letter-spacing: 0.065em;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-top: -1px;
+  vertical-align: top; /* inline-block fix */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - 1em) 100%,
+    0.33em 100%,
+    0 0.75em
+  );
+  transition: padding-right 0.25s ease-in-out;
+}
+
+.hud_card_container {
+    position: relative;
+}
+.hud_card_background {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.hud_card_grid {
+    display: grid;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+.card {
+    background: linear-gradient(130deg, hsla(128, 100%, 24%, 0.5 ), hsla(240, 100%, 7%, 0.1));
+    height: 100%;
+    width: 100%;
+   /** Backdrop filter adds that nice Glassmorphism effect if there are background elements **/
+    -webkit-backdrop-filter: blur(0.5px);
+    backdrop-filter: blur(0.5px);
+    box-shadow: 0 8px 32px 0 hsla(128, 100%, 24%, 0.37 );
+}
+@keyframes glow {
+    0%, 100% {
+        stroke-width: 3px;
+   }
+    50% {
+        stroke-width: 4px;
+   }
+}
+.svg {
+    overflow: visible;
+}
+.svg_stroke {
+    fill: none;
+    stroke-miterlimit: 10;
+}
+.svg_stroke_glow {
+    stroke-width: 3px;
+    animation-name: glow;
+    stroke: hsla(128, 100%, 24% );
+}
+.svg_stroke_bottom {
+    stroke-width: 1.5px;
+    stroke: hsla(128, 100%, 24%, 0.5 );
+}
+.svg_stroke_top {
+    stroke-width: 1px;
+    stroke: hsla(134, 100%, 48%);
+}
+
+.expand_card_summary {
+    cursor: pointer;
+    color: rgb(0, 124, 17);
+    transition: color 0.25s;
+}
+.expand_card_summary:hover {
+    color: #00f73a;
+}

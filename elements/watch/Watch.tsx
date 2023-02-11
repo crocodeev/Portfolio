@@ -1,6 +1,7 @@
 import { TWatchProps } from "./types"
 import MemoizedDigit from "./Digit"
 import Separator from "./Separator"
+import WatchFilter from "./WatchFilter"
 import { getTime, preciseTimer } from "./utils"
 import { useEffect, useState } from "react"
 import styles from '../../styles/Watch.module.css'
@@ -12,7 +13,6 @@ import styles from '../../styles/Watch.module.css'
   }: TWatchProps) =>  {
     
     const currentTime = getTime();
-    console.log(currentTime);
     
     
     const [time, setTime] = useState({
@@ -44,6 +44,7 @@ import styles from '../../styles/Watch.module.css'
     
     return(
       <div className={styles.watch_container} style={{ transform: `skew(${skew}deg)`}}>
+        <WatchFilter colorOn={colorOn}/>
         <MemoizedDigit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[0]}/>
         <MemoizedDigit colorOn={colorOn} colorOff={colorOff} digit={time.currentTime[1]}/>
         <Separator colorOn={colorOn} colorOff={colorOff} state={time.separator}/>

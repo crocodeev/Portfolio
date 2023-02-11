@@ -1,0 +1,23 @@
+@keyframes arrow_op {
+
+    0% {
+        opacity: 0.1;
+      }
+
+    50% {
+        opacity: 1;
+    }  
+    
+    100% {
+        opacity: 0.1;
+    }
+    
+}
+
+
+.anima_arrow {
+    animation-name: arrow_op;
+    animation-duration: 3000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
