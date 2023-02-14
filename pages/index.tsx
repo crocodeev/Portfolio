@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Player from '../elements/Player/Player'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import styles2 from '../styles/Frame.module.css'
@@ -23,7 +24,14 @@ export default function Home() {
       <FrameFilter />
       <div className='row valign-wrapper'>
         <div className='col s6'>
-          <DynamicWatch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
+            <div className='row valign-wrapper'>
+                <div className='col s12'>
+                  <DynamicWatch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
+                </div>
+            </div>
+            <div className='row valign-wrapper'>
+                  <Player />
+            </div>
         </div>
         <div className='col s6'>
           <Avatar />
@@ -44,6 +52,7 @@ export default function Home() {
             label="about me"
             displayBackground={false}
             >
+              <div className={styles.text_field}>
               <p>asdasdasdafasdfasdgasgaga
                 asdgasdgasdgashashahafdhadf
                 adfhadfhadfh
@@ -64,6 +73,27 @@ export default function Home() {
                 asdgasdgasdgashashahafdhadf
                 adfhadfhadfh
               </p>
+              <p>asdasdasdafasdfasdgasgaga
+                asdgasdgasdgashashahafdhadf
+                adfhadfhadfh
+              </p>
+              <p>asdasdasdafasdfasdgasgaga
+                asdgasdgasdgashashahafdhadf
+                adfhadfhadfh
+              </p>
+              <p>asdasdasdafasdfasdgasgaga
+                asdgasdgasdgashashahafdhadf
+                adfhadfhadfh
+              </p>
+              <p>asdasdasdafasdfasdgasgaga
+                asdgasdgasdgashashahafdhadf
+                adfhadfhadfh
+              </p>
+              <p>asdasdasdafasdfasdgasgaga
+                asdgasdgasdgashashahafdhadf
+                adfhadfhadfh
+              </p>
+              </div>
           </Frame2>
         </details>
         </div>

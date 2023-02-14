@@ -386,6 +386,19 @@ grid-row-gap: 0px;
   repeating-linear-gradient(-90deg, transparent, transparent 9px, #ccc 9px, #ccc 10px);   
 }
 
+.text_field {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  justify-content: center;
+  overflow: scroll;
+  display: grid;
+  height: 250px;
+}
+
+.text_field::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes scan-line {
   
   from {

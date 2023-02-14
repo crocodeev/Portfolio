@@ -1,4 +1,11 @@
+
 export type TBullet = {
-    strokeColor: string
+    strokeColor: string,
+    bulletMicroAnimation?: TBulletMicroAnimation 
+}
+
+type TBulletMicroAnimation = {
+    on: Function,
+    off: Function
 }
 
