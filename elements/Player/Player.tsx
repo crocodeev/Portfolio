@@ -19,6 +19,23 @@ const Player = () => {
 
        const canvas = document.getElementById("oscilloscope");
 
+       //initial field
+       const gc = canvas.getContext('2d');
+       gc.fillStyle = 'rgba(0, 0, 0, 1)';
+       gc.fillRect(0, 0, canvas.width, canvas.height);
+       
+       const lineRamp = gc.createLinearGradient(0, 0, canvas.width, canvas.height)
+        lineRamp.addColorStop(0.1, 'rgba(0, 0, 0, 1)');
+        lineRamp.addColorStop(0.5, '#00f73a');
+        lineRamp.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+        gc.lineWidth = 2;
+        gc.strokeStyle = lineRamp;
+        gc.beginPath();
+        gc.moveTo(0, canvas.height/2);
+        gc.lineTo(canvas.width, canvas.height/2);
+        gc.stroke();
+
+
        oscilloscopeCreator.current = (ac) => {
 
             const analyzer = ac.createAnalyser();
@@ -36,15 +53,6 @@ const Player = () => {
 
             const bufferLength = analyzer.frequencyBinCount;
             let dataArray = new Uint8Array(bufferLength);
-
-            //create graphic ac and black rectange
-
-            const gc = canvas.getContext('2d');
-            const ramp = gc.createRadialGradient(0,0,5,150,75,100);
-            ramp.addColorStop(0, 'lime');
-            ramp.addColorStop(1, 'black');
-            gc.fillStyle = ramp;
-            gc.fillRect(0,0,canvas.width, canvas.height);
 
             //create function for draw wave
 
@@ -114,32 +122,24 @@ const Player = () => {
 
         const duration = sound.duration();
 
-        
-        console.log(duration);
-        
-        
-        
         const animate = () => {
 
-            const current = sound.seek();
+                if(sound.playing()){
 
-            if(current !== 0){
-                console.log(current);
-            
-                const percent = `${ Math.floor(duration / current * 100)}%`;
-                console.log(percent);
-                
-                pointer.current.style.left = percent;
+                    const percent = `${(sound.seek() * 100 / duration).toFixed(4)}%`;
+                    
+                    pointer.current.style.left = percent;
 
-                requestAnimationFrame(animate);    
-            }else{
-                pointer.current.style.left = "0%";
-                requestAnimationFrame(animate);
-            }
+                    requestAnimationFrame(animate);  
+                }
 
         }
 
-        requestAnimationFrame(animate);
+        sound.once('play', () => {
+            requestAnimationFrame(animate);
+        })
+
+        
     }
 
     const handlePlay = () => {
@@ -152,6 +152,17 @@ const Player = () => {
             analyzer.current = oscilloscopeCreator.current(Howler.ctx);
         }
 
+        sound.once('end', () => {
+            setState({
+                play: false,
+                pause: false,
+                stop: false
+            })
+
+            pointer.current.style.left = "0%"
+
+        })
+
         sound.play();
 
         TrackBarAnimation();
@@ -161,6 +172,8 @@ const Player = () => {
             pause: false,
             stop: false
         })
+
+
         
     }
 
@@ -174,6 +187,7 @@ const Player = () => {
                 pause: true,
                 stop: false
             })
+
         }
     
     }
@@ -187,6 +201,9 @@ const Player = () => {
             pause: false,
             stop: true
         })
+
+        pointer.current.style.left = "0%"
+
     }
 
     return(

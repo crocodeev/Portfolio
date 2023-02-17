@@ -1,21 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import Player from '../elements/Player/Player'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import styles2 from '../styles/Frame.module.css'
 import dynamic from 'next/dynamic'
 import Avatar from '../elements/Card/Avatar'
-import Radar from '../elements/Radar/Radar'
 import 'materialize-css/dist/css/materialize.min.css'
 const DynamicWatch = dynamic(() => import('../elements/watch/Watch'), { ssr: false})
 import Frame2 from '../elements/Frame/Frame'
 import FrameFilter from '../elements/Frame/FrameFilter'
 import ListCustom from '../elements/ListCustom/ListCustom'
-/*
-  <div className={styles.line}></div>
-  <div className={styles.mask}></div>
- */
+import { EBullet } from '../elements/ListCustom/Bullets/types'
 
 
 export default function Home() {
@@ -124,7 +118,7 @@ export default function Home() {
             label="react etudes"
             >
             <ListCustom 
-            type='links'
+            type={EBullet.link}
             strokeColor='#00f73a' 
             items={[
             <Link href="/projects/master_brain">MASTER BRAIN</Link>,
@@ -143,7 +137,7 @@ export default function Home() {
             filterHeight={100}
             >
             <ListCustom 
-            type='usual'
+            type={EBullet.collapsible}
             strokeColor='#00f73a' 
             items={["JS", "OTHER"]}/>  
           </Frame2>
@@ -161,17 +155,10 @@ export default function Home() {
             filterWidth={200}
             filterHeight={100}
             >
-              <ul>
-              <li>
-                RUST
-              </li>
-              <li>
-                WASM 
-              </li>
-              <li>
-                CREATE ZX GAME
-              </li>
-            </ul>  
+            <ListCustom 
+            type={EBullet.todo}
+            strokeColor='#00f73a' 
+            items={["Study Rust", "WASM", "Create game for zx spectrum"]}/>  
           </Frame2>
         </div>
         <div className='col s6'>
@@ -180,23 +167,42 @@ export default function Home() {
             tr={false}
             bl={false}
             br={true}
-            label="achievement"
+            label="achievements"
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}
             filterHeight={100}
             >
-              <ul>
-                <li>
-                  RUST
-                </li>
-                <li>
-                  WASM 
-                </li>
-                <li>
-                  CREATE ZX GAME
-                </li>
-              </ul> 
+              <ListCustom 
+                type={EBullet.todo}
+                strokeColor='#00f73a' 
+                items={["audio player, based on electronjs and used on production", 
+                "custom linux image for it deployed on WDS",
+                "notification telegram bot",
+                "webapp telegram bot",
+                "corporate wiki",
+                "different scripts and utils to simplify workflow"]}/>
           </Frame2>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col s12">
+        <Frame2
+            tl={true}
+            tr={false}
+            bl={false}
+            br={true}
+            label="passions"
+            animation={{ length: 3000, delay: 0 }} 
+            filterWidth={200}
+            filterHeight={100}
+            >
+              <ListCustom 
+                type={EBullet.usual}
+                strokeColor='#00f73a' 
+                items={["motorcycles (especially oldtimes)", 
+                "music (electric guitars)", 
+                "microcontroller (arduino, esp)"]}/>
+          </Frame2>  
         </div>
       </div>
     </div>

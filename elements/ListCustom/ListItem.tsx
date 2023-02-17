@@ -1,11 +1,13 @@
 import { useRef } from "react"
+import { EBullet } from "./Bullets/types"
 import Bullet1 from "./Bullets/Bullet1"
 import Bullet2 from "./Bullets/Bullet2"
+import Bullet3 from "./Bullets/Bullet3"
 
 
 type TListItem = {
     strokeColor: string,
-    type: string,
+    type: EBullet,
     index: number,
     item: any
 }
@@ -17,10 +19,12 @@ const ListItem = ({ strokeColor, index, type, item }: TListItem) => {
         off: () => {}
     })
 
-    const Bullet = type === "links" ? 
-    <Bullet2 strokeColor={strokeColor} /> 
-    :
-    <Bullet1 strokeColor={strokeColor} bulletMicroAnimation={bulletMicroAnimation.current}/>
+
+    const Bullet = [<Bullet1 strokeColor={strokeColor} 
+                    bulletMicroAnimation={bulletMicroAnimation.current}/>, 
+                    <Bullet2 strokeColor={strokeColor}/>, 
+                    <Bullet3 strokeColor={strokeColor}
+                    bulletMicroAnimation={bulletMicroAnimation.current}/>][type];                
 
     return(
         <div 

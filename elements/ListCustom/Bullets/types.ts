@@ -9,3 +9,9 @@ type TBulletMicroAnimation = {
     off: Function
 }
 
+export enum EBullet {
+    todo = 0,
+    link = 1,
+    collapsible = 2,
+    usual = 2
+}

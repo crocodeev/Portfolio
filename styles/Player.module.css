@@ -34,19 +34,20 @@
 
   .btn_out_clicked{
     width: 130%;
-    box-shadow: 0 0 5px 1px #00f73a;
   }
 
   .btn_in{
     text-align: justify;
     padding-left: 0.5em;
     background-color: black;
-    transition: padding-left 0.1s;
+    transition: all 0.1s;
     user-select: none;
   }
 
   .btn_in_clicked{
     padding-left: 0.8em;
+    background-color: #00f73a;
+    color: black;
   }
 
 
@@ -86,5 +87,5 @@
     left: 0%;
     bottom: 5px;
     background:  #00f73a;
-    box-shadow: 0 0 5px 1px #00f73a;
+    box-shadow: 0 0 4px 1px #00f73a;
   }

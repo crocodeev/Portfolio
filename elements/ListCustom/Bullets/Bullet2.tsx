@@ -3,9 +3,6 @@ import styles from "../ListCustomStyles.module.css"
 
 const Bullet2 = ({ strokeColor }: TBullet ) => {
 
-
-    
-
   
     return(
       <div style={{

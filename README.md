@@ -29,16 +29,22 @@ How it happened?
 
 ## Achievements
 
-- audio player, that use in malls
-- custom linux image for this player
+- audio player, based on electron and used on production
+- custom linux image for this player deployed on WDS
 - notification telegram bot
-- webapp telegram bot for uploading image to the corporate cloud 
-- corporate wiki to share knowlege
+- webapp telegram bot 
+- corporate wiki
+- different scripts and utils to simplify workflow
 
 ## Goals
 
-- [ ] study rust and wasm
-- [ ] create game for zx-spectrum
+- [ ] study rust
+- [ ] wasm
+- [ ] create game for zx spectrum
 
 ## passions
+
+- motorcycles (especially oldtimes)
+- music (electric guitars)
+- microcontroller (arduino, esp)
 
