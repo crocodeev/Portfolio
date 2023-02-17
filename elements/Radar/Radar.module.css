@@ -1,0 +1,106 @@
+.radar_container{
+    display: flex;
+    height: 100px;
+  
+}
+
+.radar{
+    background-color: rgb(0, 124, 17);
+    height: 100%;
+    width: 100%;
+}
+
+/* Rectangle 1 */
+/*
+position: absolute;
+width: 100px;
+height: 50px;
+
+background: #D9D9D9;*/
+
+
+/* Ellipse 1 */
+
+.ellipse1{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+    background: #D9D9D9;
+    /* Iris/100 */
+    border: 2px solid #5D5FEF;
+}
+
+.ellipse2{
+    /* Ellipse 2 */
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+    background: #D9D9D9;
+    /* Iris/100 */
+    border: 2px solid #5D5FEF;
+}
+
+
+.ellipse3{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+    background: #D9D9D9;
+    /* Iris/100 */
+    border: 2px solid #5D5FEF;
+
+}
+
+
+.ellipse4{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+    background: #D9D9D9;
+    /* Iris/100 */
+    border: 2px solid #5D5FEF;
+}
+
+
+.line1{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 58px;
+    height: 7.5px;
+
+    border: 3px solid #5D5FEF;
+}
+
+
+.line2{
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 60.5px;
+    height: 8px;
+
+    border: 3px solid #5D5FEF;
+}
+
+
+.seek{
+    background: linear-gradient(12deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
+    position: relative;
+    left: 50%;
+    top: 50%;
+}

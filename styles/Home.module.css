@@ -37,6 +37,7 @@ grid-row-gap: 0px;
 .div7 { grid-area: 5 / 4 / 7 / 6; }
 */
 
+
 @font-face {
   font-family: "Wheaton Capitals";
   src: url('../public/fonts/wheaton_capitals.otf');
@@ -248,6 +249,7 @@ grid-row-gap: 0px;
   font-family: "Wheaton Capitals";
   height: 100%;
   width: 100%;
+  margin-top: 1%;
   position: relative;
 }
 
@@ -257,19 +259,26 @@ grid-row-gap: 0px;
   vertical-align: middle;
 }
 
+.avatar_container{
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
 
 .portrait_foreground{
   background: rgba(0,255,0, 0.5);
+  width: 100%;
+  height: 100%;
   position: absolute;
-  width: 300px;
-  height: 300px;
   z-index: 1;
 }
 
 .portrait {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   object-fit: cover;
+  filter: grayscale();
 }
 
 .checkbox {
@@ -332,7 +341,7 @@ grid-row-gap: 0px;
   resize: none;
   width: 100%;
   clip-path: polygon(
-    0.1em 0.1em,
+    0.5em 0.5em,
     100% 0,
     calc(100% - 0.1em) 100%,
     0.1em 100%,
@@ -340,7 +349,7 @@ grid-row-gap: 0px;
   );
 }
 
-.frame_label_bottom{
+.player_btn{
   background-color: var(--colors-primary--600);
   color: var(--colors-on_primary--500);
   font-family: var(--fonts-secondary);
@@ -397,6 +406,16 @@ grid-row-gap: 0px;
 
 .text_field::-webkit-scrollbar {
   display: none;
+}
+
+.widget_container{
+  display: flex;
+  margin: 2%;
+}
+
+.text_bage{
+  text-align: center;
+  user-select: none;
 }
 
 @keyframes scan-line {

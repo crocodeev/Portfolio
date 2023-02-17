@@ -1,15 +1,19 @@
 import { Howl, Howler } from 'howler';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import styles from '../../styles/Player.module.css'
 import Oscilloscope from './Oscilloscope'; 
+import ControlButton from './ControlButton';
+import TrackBar from './TrackBar';
 
+const sound = new Howl({ src: ['sound/track.mp3']});
 
 const Player = () => {
     
-    
-    const sound = new Howl({ src: ['sound/track.mp3']});
-
     const oscilloscopeCreator = useRef(null);
     const analyzer = useRef(null);
+    const pointer = useRef(null);
+
+    const [state, setState] = useState({ play: false, pause: false, stop: false})
 
     const onCanvasMount = () => {
 
@@ -91,16 +95,6 @@ const Player = () => {
                     gc.stroke();
                 }
 
-/*
-                if (ac.currentTime < 0.1){
-                    subDraw();
-                    analyzer.isFirstStart = 0;
-                    drawTime = ac.currentTime;
-                }else if (ac.currentTime - drawTime >= 0.5) {
-                    subDraw();
-                    drawTime = ac.currentTime;
-                }*/
-
                 subDraw();
 
                 }
@@ -111,40 +105,125 @@ const Player = () => {
                 }
     }
 
-    const handlePlay = (event: React.SyntheticEvent) => {
-        event.preventDefault();
+    const onTrackBarMount = () => {
+
+        pointer.current = document.getElementById("pointer");
+    }
+
+    const TrackBarAnimation = () => {
+
+        const duration = sound.duration();
+
+        
+        console.log(duration);
+        
+        
+        
+        const animate = () => {
+
+            const current = sound.seek();
+
+            if(current !== 0){
+                console.log(current);
+            
+                const percent = `${ Math.floor(duration / current * 100)}%`;
+                console.log(percent);
+                
+                pointer.current.style.left = percent;
+
+                requestAnimationFrame(animate);    
+            }else{
+                pointer.current.style.left = "0%";
+                requestAnimationFrame(animate);
+            }
+
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    const handlePlay = () => {
+
+        if(sound.playing()){
+            return;
+        }
+
+        if(!analyzer.current){
+            analyzer.current = oscilloscopeCreator.current(Howler.ctx);
+        }
+
         sound.play();
-        const analyzer = oscilloscopeCreator.current(Howler.ctx);
+
+        TrackBarAnimation();
+        
+        setState({
+            play: true,
+            pause: false,
+            stop: false
+        })
+        
     }
 
-    const handlePause = (event: React.SyntheticEvent) => {
-        event.preventDefault();
-        sound.pause();
+    const handlePause = () => {
+
+        if(sound.playing()){
+            sound.pause();
+
+            setState({
+                play: false,
+                pause: true,
+                stop: false
+            })
+        }
+    
     }
 
-    const handleStop = (event: React.SyntheticEvent) => {
-        event.preventDefault();
+    const handleStop = () => {
+
         sound.stop();
+
+        setState({
+            play: false,
+            pause: false,
+            stop: true
+        })
     }
 
     return(
-        <div className='col s12'>
-            
-                <div className="col s2">
+        <div className={styles.player_container}>
+            <div className="row">
+            <div className="col s2">
                     <div className="row">
-                        <button onClick={handlePlay}>PLAY</button>
+                        <ControlButton 
+                            title={"PLAY"} 
+                            callback={handlePlay}
+                            state={state.play}
+                            />
                     </div>
                     <div className="row">
-                        <button onClick={handlePause}>PAUSE</button>
+                        <ControlButton 
+                            title={"PAUSE"} 
+                            callback={handlePause}
+                            state={state.pause}
+                            />
                     </div>
                     <div className="row">
-                    <button onClick={handleStop}>STOP</button>
+                        <ControlButton 
+                            title={"STOP"} 
+                            callback={handleStop}
+                            state={state.stop}
+                            />
                     </div>     
                 </div>
                 <div className='col s10'>
                     <Oscilloscope callback={onCanvasMount} />
-                </div>   
-            
+                </div>    
+            </div>
+            <div className="row">
+                <div className='col s12'>
+                    <TrackBar callback={onTrackBarMount}/>
+                </div>
+            </div>     
         </div>
     )
 }

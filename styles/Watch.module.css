@@ -1,10 +1,26 @@
 .watch_container {
     display: flex;
+    justify-content: center;
     filter: drop-shadow(2px 4px 6px black);
-    height: 200px;
+    height: 100%;
+    width: 100%;
   }
+
+
+.watch_digit_container{
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+.watch_separator_container{
+  vertical-align: middle;
+  width: 6%;
+}
   
-.watch_container > svg {
+  
+.watch_digit_container > svg {
     margin: 5px;
 }
 

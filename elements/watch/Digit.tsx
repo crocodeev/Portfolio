@@ -1,5 +1,6 @@
 import { memo } from "react"
 import { TDigitProps } from "./types"
+import styles from '../../styles/Watch.module.css'
 
 const Digit = ({digit,
     colorOn,
@@ -33,7 +34,8 @@ const segments = symbols[Number.parseInt(digit)]
 
 
 return(
-<svg viewBox="0,0,50,100">
+<div className={styles.watch_digit_container}>    
+<svg viewBox="0,0,50,100" preserveAspectRatio="xMinYMin meet">
 
 <g>
 <polygon  style={segments[0] ? on : off} points="8,0 42,0 45,2 40,10 10,10 5,2"/>
@@ -51,7 +53,9 @@ return(
 <polygon style={segments[3] ? on : off} points="8,100 42,100 45,98 40,90 10,90 5,98"/>
 </g>
 
-</svg>)
+</svg>
+</div>
+)
 }
 
 const MemoizedDigit = memo(Digit)

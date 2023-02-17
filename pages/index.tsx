@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import styles2 from '../styles/Frame.module.css'
 import dynamic from 'next/dynamic'
 import Avatar from '../elements/Card/Avatar'
+import Radar from '../elements/Radar/Radar'
 import 'materialize-css/dist/css/materialize.min.css'
 const DynamicWatch = dynamic(() => import('../elements/watch/Watch'), { ssr: false})
 import Frame2 from '../elements/Frame/Frame'
@@ -20,22 +21,34 @@ import ListCustom from '../elements/ListCustom/ListCustom'
 export default function Home() {
 
   return (
+    <div className="container">
     <div className={styles.home_container}>
       <FrameFilter />
-      <div className='row valign-wrapper'>
+      <div className='row'>
         <div className='col s6'>
-            <div className='row valign-wrapper'>
-                <div className='col s12'>
-                  <DynamicWatch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
-                </div>
-            </div>
-            <div className='row valign-wrapper'>
+            
+            <div className='row'>
+              <div className='col s12'>
                   <Player />
+               </div>     
             </div>
+
+            <div className='row valing-wrapper'>
+              <div className="col s6">
+                <DynamicWatch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
+              </div>
+              <div className="col s6">
+                <div className={styles.text_bage}>
+                  <h5>ALEXANDER</h5>
+                  <h5>CROCODEEV</h5>
+                </div>
+              </div>
+            </div>
+            
         </div>
-        <div className='col s6'>
-          <Avatar />
-        </div>
+          <div className='col s6'>
+            <Avatar />
+          </div>
       </div>
       <div className="row">
         <div className='col s12'>
@@ -186,11 +199,7 @@ export default function Home() {
           </Frame2>
         </div>
       </div>
-      
-      
-      
-     
-   
     </div>
+    </div>  
   )
 }
