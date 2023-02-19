@@ -20,27 +20,28 @@ const AboutMe = () => {
 
                     <h5>Long story:</h5>
 
+                    <h6>1</h6>    
                     <p>
-                    <h6>1</h6> to automate routine animation in after effect, 
+                    to automate routine animation in after effect, 
                     I learned how to write expression (AE use JS as an expression language),
                     <br/>
                     <a href="https://www.youtube.com/watch?v=-9vzxbvnA8k">here</a> example of animation
                     </p>
 
-                    <p>
                     <h6>2</h6>
+                    <p>
                     then I automated some routine for me and colleagues using powershell and bash (on RPI),
                     <br/>
                     started managing servers at work
                     </p>
 
-                    <p>
                     <h6>3</h6>
+                    <p>
                     took a JS course at LevelUp school 
                     </p>
 
-                    <p>
                     <h6>4</h6>
+                    <p>
                         during the quarantine made PoC audio player on Electron JS
                     </p>
 
