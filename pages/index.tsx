@@ -121,8 +121,8 @@ export default function Home() {
             type={EBullet.link}
             strokeColor='#00f73a' 
             items={[
-            <Link href="/projects/master_brain">MASTER BRAIN</Link>,
-            <Link href="/projects/fifteen_game">FIFTEEN GAME</Link> ]}/>  
+            <Link key={1} href="/projects/master_brain">MASTER BRAIN</Link>,
+            <Link key={2} href="/projects/fifteen_game">FIFTEEN GAME</Link> ]}/>  
           </Frame2>
         </div>
         <div className='col s6'>
@@ -139,7 +139,13 @@ export default function Home() {
             <ListCustom 
             type={EBullet.collapsible}
             strokeColor='#00f73a' 
-            items={["JS", "OTHER"]}/>  
+            items={[{
+              title: "JS",
+              collection: ["Electron", "React", "Node"]
+            }, {
+              title: "OTHER (a little bit)",
+              collection: ["Python", "Powershell", "Bash", "Docker"]
+            }]}/>  
           </Frame2>
         </div>
       </div>
@@ -173,10 +179,10 @@ export default function Home() {
             filterHeight={100}
             >
               <ListCustom 
-                type={EBullet.todo}
+                type={EBullet.passion}
                 strokeColor='#00f73a' 
                 items={["audio player, based on electronjs and used on production", 
-                "custom linux image for it deployed on WDS",
+                "custom linux image for it and deployed on WDS",
                 "notification telegram bot",
                 "webapp telegram bot",
                 "corporate wiki",
@@ -197,10 +203,10 @@ export default function Home() {
             filterHeight={100}
             >
               <ListCustom 
-                type={EBullet.usual}
+                type={EBullet.passion}
                 strokeColor='#00f73a' 
-                items={["motorcycles (especially oldtimes)", 
-                "music (electric guitars)", 
+                items={["motorcycles (especially oldtimers)", 
+                "music (electric guitar)", 
                 "microcontroller (arduino, esp)"]}/>
           </Frame2>  
         </div>

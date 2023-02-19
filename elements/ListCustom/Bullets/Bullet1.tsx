@@ -1,27 +1,49 @@
 import { TBullet } from "./types"
-import { useRef } from 'react'
+import { useRef, forwardRef } from 'react'
  
-const Bullet1 = ({ strokeColor, bulletMicroAnimation}: TBullet ) => {
+const Bullet1 =  forwardRef(function Bullet ({ strokeColor, ref}: TBullet, ref ) {
 
-    const middleWidth = useRef(null);
-    const center = useRef(null);
+    const middleWidth = useRef<HTMLDivElement>(null);
+    const center = useRef<HTMLDivElement>(null);
 
-  
-    bulletMicroAnimation.on = () => {
-        
-      middleWidth.current.style.width = "10px";
-      center.current.style.display = "block";
-    }
+        if(ref){
+          console.log("Bullet 1");
+          console.log("Change function");
+          
+          
+          ref.on = () => {
 
-
-    bulletMicroAnimation.off = () => {
+            console.log("ON");
+            
+            
+            if(middleWidth.current !== null && center.current !== null ){
+              console.log("refs");
+              
+              middleWidth.current.style.width = "10px";
+              center.current.style.display = "block";
+            }
+            
+          }
       
-      middleWidth.current.style.width  = "5px";
-      center.current.style.display = "none";
-    }
+      
+          ref.off = () => {
+
+            console.log("OFF");
+    
+            if(middleWidth.current !== null && center.current !== null){
+              console.log("refs");
+              
+              middleWidth.current.style.width  = "5px";
+              center.current.style.display = "none";
+    
+            }
+            
+          }
+          console.log(ref.on.toString());
+        }
 
 
-  
+    
     return(
       <div style={{
         display: "flex"
@@ -57,6 +79,6 @@ const Bullet1 = ({ strokeColor, bulletMicroAnimation}: TBullet ) => {
         
       </div>
     )
-  }
+  })
 
   export default Bullet1

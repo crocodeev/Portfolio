@@ -9,113 +9,114 @@ const sound = new Howl({ src: ['sound/track.mp3']});
 
 const Player = () => {
     
-    const oscilloscopeCreator = useRef(null);
-    const analyzer = useRef(null);
-    const pointer = useRef(null);
+    const oscilloscopeCreator = useRef<any>(null);
+    const analyzer = useRef<any>(null);
+    const pointer = useRef<any>(null);
 
     const [state, setState] = useState({ play: false, pause: false, stop: false})
 
     const onCanvasMount = () => {
 
-       const canvas = document.getElementById("oscilloscope");
+       const canvas = document.getElementById("oscilloscope") as HTMLCanvasElement;
 
        //initial field
-       const gc = canvas.getContext('2d');
-       gc.fillStyle = 'rgba(0, 0, 0, 1)';
-       gc.fillRect(0, 0, canvas.width, canvas.height);
-       
-       const lineRamp = gc.createLinearGradient(0, 0, canvas.width, canvas.height)
-        lineRamp.addColorStop(0.1, 'rgba(0, 0, 0, 1)');
-        lineRamp.addColorStop(0.5, '#00f73a');
-        lineRamp.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
-        gc.lineWidth = 2;
-        gc.strokeStyle = lineRamp;
-        gc.beginPath();
-        gc.moveTo(0, canvas.height/2);
-        gc.lineTo(canvas.width, canvas.height/2);
-        gc.stroke();
+       if(canvas !== null){
+        const gc = canvas.getContext('2d') as any;
 
+        gc.fillStyle = 'rgba(0, 0, 0, 1)';
+        gc.fillRect(0, 0, canvas.width, canvas.height);
+        
+        const lineRamp = gc.createLinearGradient(0, 0, canvas.width, canvas.height)
+         lineRamp.addColorStop(0.1, 'rgba(0, 0, 0, 1)');
+         lineRamp.addColorStop(0.5, '#00f73a');
+         lineRamp.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+         gc.lineWidth = 2;
+         gc.strokeStyle = lineRamp;
+         gc.beginPath();
+         gc.moveTo(0, canvas.height/2);
+         gc.lineTo(canvas.width, canvas.height/2);
+         gc.stroke();
+ 
+        if(oscilloscopeCreator.current !== null){
 
-       oscilloscopeCreator.current = (ac) => {
-
-            const analyzer = ac.createAnalyser();
-
-            Howler.masterGain.connect(analyzer);
-            analyzer.connect(Howler.ctx.destination);
-
-            analyzer.height = canvas.height;
-            analyzer.width  = canvas.width;
-            analyzer.strokeColor = "#00f73a";
-            analyzer.strokeWidth = 2;
-
-            analyzer.fftSize  = 2048;
-            analyzer.smoothingTimeConstant = 1;
-
-            const bufferLength = analyzer.frequencyBinCount;
-            let dataArray = new Uint8Array(bufferLength);
-
-            //create function for draw wave
-
-            let drawTime = 0;
-
-            function draw() {
-
-            //create animation
-                requestAnimationFrame(draw);
-            //copy current waveform to dataArray
-                analyzer.getByteTimeDomainData(dataArray);
-            //sub function for organized code
-                function subDraw() {
-                //clean background
-                    //const ramp = gc.createRadialGradient(150, 75, 0, 150, 75, 150);
-                    //ramp.addColorStop(0.8, 'rgba(0, 0, 0, 1)');
-                    //ramp.addColorStop(1, 'rgba(27, 113, 10, 0.2)');
-                    gc.fillStyle = 'rgba(0, 0, 0, 1)';
-                    gc.fillRect(0, 0, canvas.width, canvas.height);
-                //draw line
-                    const lineRamp = gc.createLinearGradient(0, 0, canvas.width, canvas.height)
-                    lineRamp.addColorStop(0.1, 'rgba(0, 0, 0, 1)');
-                    lineRamp.addColorStop(0.5, '#00f73a');
-                    lineRamp.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
-                    gc.lineWidth = 2;
-                    gc.strokeStyle = lineRamp;
-                    gc.beginPath();
-                    // define segment lenght
-                    let sliceWidth = canvas.width * 1.0 / bufferLength;
-                    //x-axis coordinate
-                    let x = 0;
-
-                    for(let i = 0; i < bufferLength; i++) {
-
-                    //y-axis coordinate
-                    let v = dataArray[i] / 128.0;
-                    let y = v * canvas.height/2;
-
-                    if(i === 0) {
-                        gc.moveTo(x, y);
-                    } else {
-                        gc.lineTo(x, y);
+            oscilloscopeCreator.current = (ac: any) => {
+ 
+                const analyzer = ac.createAnalyser();
+    
+                Howler.masterGain.connect(analyzer);
+                analyzer.connect(Howler.ctx.destination);
+    
+                analyzer.height = canvas.height;
+                analyzer.width  = canvas.width;
+                analyzer.strokeColor = "#00f73a";
+                analyzer.strokeWidth = 2;
+    
+                analyzer.fftSize  = 2048;
+                analyzer.smoothingTimeConstant = 1;
+    
+                const bufferLength = analyzer.frequencyBinCount;
+                let dataArray = new Uint8Array(bufferLength);
+    
+                function draw() {
+    
+                //create animation
+                    requestAnimationFrame(draw);
+                //copy current waveform to dataArray
+                    analyzer.getByteTimeDomainData(dataArray);
+                //sub function for organized code
+                    function subDraw() {
+                    //clean background
+                        //const ramp = gc.createRadialGradient(150, 75, 0, 150, 75, 150);
+                        //ramp.addColorStop(0.8, 'rgba(0, 0, 0, 1)');
+                        //ramp.addColorStop(1, 'rgba(27, 113, 10, 0.2)');
+                        gc.fillStyle = 'rgba(0, 0, 0, 1)';
+                        gc.fillRect(0, 0, canvas.width, canvas.height);
+                    //draw line
+                        const lineRamp = gc.createLinearGradient(0, 0, canvas.width, canvas.height)
+                        lineRamp.addColorStop(0.1, 'rgba(0, 0, 0, 1)');
+                        lineRamp.addColorStop(0.5, '#00f73a');
+                        lineRamp.addColorStop(0.9, 'rgba(0, 0, 0, 1)');
+                        gc.lineWidth = 2;
+                        gc.strokeStyle = lineRamp;
+                        gc.beginPath();
+                        // define segment lenght
+                        let sliceWidth = canvas.width * 1.0 / bufferLength;
+                        //x-axis coordinate
+                        let x = 0;
+    
+                        for(let i = 0; i < bufferLength; i++) {
+    
+                        //y-axis coordinate
+                        let v = dataArray[i] / 128.0;
+                        let y = v * canvas.height/2;
+    
+                        if(i === 0) {
+                            gc.moveTo(x, y);
+                        } else {
+                            gc.lineTo(x, y);
+                        }
+                        //move to next segment
+                        x += sliceWidth;
+                        }
+                        gc.lineTo(canvas.width, canvas.height/2);
+                        gc.stroke();
                     }
-                    //move to next segment
-                    x += sliceWidth;
+    
+                    subDraw();
+    
                     }
-                    gc.lineTo(canvas.width, canvas.height/2);
-                    gc.stroke();
-                }
-
-                subDraw();
-
-                }
-
-                draw();
-
-                return analyzer;
-                }
+    
+                    draw();
+    
+                    return analyzer;
+                    }
+        }
+       }
     }
 
     const onTrackBarMount = () => {
 
-        pointer.current = document.getElementById("pointer");
+        pointer !== null && (pointer.current = document.getElementById("pointer"))
     }
 
     const TrackBarAnimation = () => {
@@ -144,14 +145,24 @@ const Player = () => {
 
     const handlePlay = () => {
 
+        console.log("try playing");
+        console.log(sound);
+
         if(sound.playing()){
             return;
         }
 
+        console.log("start analyzer");
         if(!analyzer.current){
+            console.log(typeof oscilloscopeCreator.current);
+            console.log(oscilloscopeCreator);
+            
             analyzer.current = oscilloscopeCreator.current(Howler.ctx);
         }
 
+
+        console.log("add once event");
+        
         sound.once('end', () => {
             setState({
                 play: false,
@@ -163,9 +174,17 @@ const Player = () => {
 
         })
 
+        console.log("start playing");
+        
+
         sound.play();
 
+        console.log("start trackbar animations");
+        
         TrackBarAnimation();
+
+        console.log("set buttons state");
+        
         
         setState({
             play: true,

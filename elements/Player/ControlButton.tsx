@@ -2,7 +2,7 @@ import styles from '../../styles/Player.module.css'
 
 type TControlButton = {
     title: string,
-    callback: Function,
+    callback: any,
     state: boolean
 }
 

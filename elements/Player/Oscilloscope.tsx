@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import styles from '../../styles/Player.module.css'
 
-type TOscilloscope = () => {
+type TOscilloscope =  {
   callback: Function
 }
 
-const Oscilloscope = ({callback}: TOscilloscope) => {
+const Oscilloscope = ({ callback }: TOscilloscope) => {
 
 
     useEffect(() => {

@@ -26,6 +26,7 @@ How it happened?
 - Python 
 - Powershell
 - Bash
+- Docker
 
 ## Achievements
 
@@ -44,7 +45,7 @@ How it happened?
 
 ## passions
 
-- motorcycles (especially oldtimes)
+- motorcycles (especially oldtimers)
 - music (electric guitars)
 - microcontroller (arduino, esp)
 

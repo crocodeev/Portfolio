@@ -34,14 +34,20 @@ const Frame2 = ({tl,
 
     const maxCornerSize = 20
     const adjustedCornerSize = cornerSize <= maxCornerSize ? cornerSize : maxCornerSize;
-    const label_ref = useRef(null);
+    const label_ref = useRef<HTMLLabelElement>(null);
 
     const handleMouseEnter = () => {
-        label_ref.current.style.paddingRight = "10em"
+        if(label_ref.current !==null){
+            label_ref.current.style.paddingRight = "10em"
+        }
+        
     }
 
     const handleMouseLeave = () => {
-        label_ref.current.style.paddingRight = ""; 
+        if(label_ref.current !== null){
+            label_ref.current.style.paddingRight = ""; 
+        }
+        
     }
 
     return (
