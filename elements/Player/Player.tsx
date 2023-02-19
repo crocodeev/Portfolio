@@ -17,6 +17,7 @@ const Player = () => {
 
     const onCanvasMount = () => {
 
+
        const canvas = document.getElementById("oscilloscope") as HTMLCanvasElement;
 
        //initial field
@@ -37,8 +38,9 @@ const Player = () => {
          gc.lineTo(canvas.width, canvas.height/2);
          gc.stroke();
  
-        if(oscilloscopeCreator.current !== null){
+        if(oscilloscopeCreator.current === null){
 
+    
             oscilloscopeCreator.current = (ac: any) => {
  
                 const analyzer = ac.createAnalyser();
@@ -145,24 +147,17 @@ const Player = () => {
 
     const handlePlay = () => {
 
-        console.log("try playing");
-        console.log(sound);
 
         if(sound.playing()){
             return;
         }
 
-        console.log("start analyzer");
         if(!analyzer.current){
-            console.log(typeof oscilloscopeCreator.current);
-            console.log(oscilloscopeCreator);
             
             analyzer.current = oscilloscopeCreator.current(Howler.ctx);
         }
 
 
-        console.log("add once event");
-        
         sound.once('end', () => {
             setState({
                 play: false,
@@ -174,16 +169,12 @@ const Player = () => {
 
         })
 
-        console.log("start playing");
         
 
         sound.play();
 
-        console.log("start trackbar animations");
         
         TrackBarAnimation();
-
-        console.log("set buttons state");
         
         
         setState({

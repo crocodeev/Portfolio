@@ -13,17 +13,14 @@ const Collapsible = ({item, strokeColor}:TCollapsible) => {
 
     const [isOpen, setIsOpen ] = useState(false)
 
-    const bulletMicroAnimation = useRef({
-        on: () => {},
-        off: () => {}
-    })
+    const bulletMicroAnimation = useRef<any>(null)
 
     const handleClick = () => {
 
         if(isOpen){
-            bulletMicroAnimation.current.off()
+            bulletMicroAnimation.current !== null && bulletMicroAnimation.current.off()
         }else{
-            bulletMicroAnimation.current.on()
+            bulletMicroAnimation.current !== null && bulletMicroAnimation.current.on()
         }
 
         setIsOpen(!isOpen)
@@ -44,7 +41,7 @@ const Collapsible = ({item, strokeColor}:TCollapsible) => {
             style={{ display: "flex", margin: "10px" }}
             onClick={handleClick}
         >
-                <Bullet3 strokeColor={strokeColor} bulletMicroAnimation={bulletMicroAnimation.current}/>       
+                <Bullet3 strokeColor={strokeColor} ref={bulletMicroAnimation}/>       
                 <div  style={{ marginTop: "2px", marginLeft: "10px", userSelect: "none"}}>
                     {item.title}  
 

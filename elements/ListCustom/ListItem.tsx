@@ -16,20 +16,17 @@ type TListItem = {
 
 const ListItem = ({ strokeColor, index, type, item }: TListItem) => {
 
-    const bulletMicroAnimation = useRef({
-        on: () => { console.log("ON") },
-        off: () => { console.log("OFF") }
-    })
+    const bulletMicroAnimation = useRef<any>(null)
 
     //choose bullet type
 
     const Bullet = [<Bullet1 strokeColor={strokeColor} 
-                    bulletMicroAnimation={bulletMicroAnimation.current}/>, 
+                    ref={bulletMicroAnimation}/>, 
                     <Bullet2 strokeColor={strokeColor}/>, 
                     <Bullet3 strokeColor={strokeColor}
-                    bulletMicroAnimation={bulletMicroAnimation.current}/>,
+                    ref={bulletMicroAnimation}/>,
                     <Bullet4 strokeColor={strokeColor} 
-                    bulletMicroAnimation={bulletMicroAnimation.current}/>][type]; 
+                    ref={bulletMicroAnimation}/>][type]; 
     
     if(type === EBullet.collapsible){
 
@@ -42,8 +39,8 @@ const ListItem = ({ strokeColor, index, type, item }: TListItem) => {
             <div 
                 key={index} 
                 style={{ display: "flex", margin: "10px" }}
-                onMouseEnter={bulletMicroAnimation.current.on}
-                onMouseLeave={bulletMicroAnimation.current.off}
+                onMouseEnter={() => {bulletMicroAnimation.current !==null && bulletMicroAnimation.current.on()}}
+                onMouseLeave={() => {bulletMicroAnimation.current !==null && bulletMicroAnimation.current.off()}}
             >
                 {Bullet}
                 <div  style={{ marginTop: "2px", marginLeft: "10px" }}>

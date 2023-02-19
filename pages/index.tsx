@@ -10,9 +10,13 @@ import Frame2 from '../elements/Frame/Frame'
 import FrameFilter from '../elements/Frame/FrameFilter'
 import ListCustom from '../elements/ListCustom/ListCustom'
 import { EBullet } from '../elements/ListCustom/Bullets/types'
+import AboutMe from '../elements/Content/AboutMe'
 
 
 export default function Home() {
+
+  console.log("amazing frames from here https://codepen.io/acarlie/pen/NWBzjJP");
+  
 
   return (
     <div className="container">
@@ -59,48 +63,7 @@ export default function Home() {
             label="about me"
             displayBackground={false}
             >
-              <div className={styles.text_field}>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              <p>asdasdasdafasdfasdgasgaga
-                asdgasdgasdgashashahafdhadf
-                adfhadfhadfh
-              </p>
-              </div>
+              <AboutMe />
           </Frame2>
         </details>
         </div>

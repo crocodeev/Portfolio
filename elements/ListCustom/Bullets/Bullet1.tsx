@@ -1,23 +1,20 @@
 import { TBullet } from "./types"
-import { useRef, forwardRef } from 'react'
+import { useRef, forwardRef, useEffect } from 'react'
  
-const Bullet1 =  forwardRef(function Bullet ({ strokeColor, ref}: TBullet, ref ) {
+const Bullet1 =  forwardRef(function Bullet ({ strokeColor }: TBullet, ref: any ) {
 
     const middleWidth = useRef<HTMLDivElement>(null);
     const center = useRef<HTMLDivElement>(null);
 
+       useEffect(() => {
         if(ref){
-          console.log("Bullet 1");
-          console.log("Change function");
-          
-          
-          ref.on = () => {
 
-            console.log("ON");
-            
+          ref.current = {}
+          
+          ref.current.on = () => {
             
             if(middleWidth.current !== null && center.current !== null ){
-              console.log("refs");
+
               
               middleWidth.current.style.width = "10px";
               center.current.style.display = "block";
@@ -26,12 +23,10 @@ const Bullet1 =  forwardRef(function Bullet ({ strokeColor, ref}: TBullet, ref )
           }
       
       
-          ref.off = () => {
-
-            console.log("OFF");
+          ref.current.off = () => {
     
             if(middleWidth.current !== null && center.current !== null){
-              console.log("refs");
+            
               
               middleWidth.current.style.width  = "5px";
               center.current.style.display = "none";
@@ -39,8 +34,9 @@ const Bullet1 =  forwardRef(function Bullet ({ strokeColor, ref}: TBullet, ref )
             }
             
           }
-          console.log(ref.on.toString());
+          
         }
+       }, [])
 
 
     
@@ -66,7 +62,8 @@ const Bullet1 =  forwardRef(function Bullet ({ strokeColor, ref}: TBullet, ref )
           style={{
             backgroundColor: strokeColor,
             height: "50%",
-            width: "50%"
+            width: "50%",
+            display: "none"
           }}></div>
         </div>
 

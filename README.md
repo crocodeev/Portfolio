@@ -7,10 +7,10 @@ now I have become a ...software developer, I believe
 
 How it happened? 
 
-1. to automate routine animation animation in after effect, I learned to write expression (AE use JS as expression language)
+1. to automate routine animation in after effect, I learned how to write expression (AE use JS as expression language), here animation example https://www.youtube.com/watch?v=-9vzxbvnA8k
 2. then I automated some routine for me and colleagues using powershell.
 3. started managing servers at work
-4. took a JS course at LevelUp
+4. took a JS course at LevelUp school 
 5. during the quarantine made PoC audio player on Electron JS and since then I
     - have been working on this
     - communicate with server-side developer team as product owner
