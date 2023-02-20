@@ -54,6 +54,13 @@ const Frame2 = ({tl,
         <div 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
+
+            <label 
+            className={styles.frame_label_top}
+            ref={label_ref} >
+                {label}
+            </label>
+
         <div className={styles.hud_card_container}>
             {/*Clippath background*/}
             {
@@ -127,11 +134,7 @@ const Frame2 = ({tl,
                     animation={animation} />
             </div>
         </div>
-            <label 
-            className={styles.frame_label_bottom}
-            ref={label_ref} >
-                {label}
-            </label>
+            
         </div>
     )}
 

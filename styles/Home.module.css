@@ -19,24 +19,6 @@ pallet
 #be6e2b
 */
 
-/*
-.parent {
-display: grid;
-grid-template-columns: repeat(6, 1fr);
-grid-template-rows: repeat(6, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-}
-
-.div1 { grid-area: 1 / 2 / 2 / 4; }
-.div2 { grid-area: 1 / 4 / 3 / 6; }
-.div3 { grid-area: 2 / 2 / 3 / 4; }
-.div4 { grid-area: 3 / 2 / 5 / 4; }
-.div5 { grid-area: 3 / 4 / 5 / 6; }
-.div6 { grid-area: 5 / 2 / 7 / 4; }
-.div7 { grid-area: 5 / 4 / 7 / 6; }
-*/
-
 
 @font-face {
   font-family: "Wheaton Capitals";
@@ -416,6 +398,13 @@ grid-row-gap: 0px;
 .text_bage{
   text-align: center;
   user-select: none;
+}
+
+.main_title{
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 2.6vw;
 }
 
 @keyframes scan-line {

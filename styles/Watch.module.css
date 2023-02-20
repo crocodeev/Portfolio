@@ -11,12 +11,12 @@
   align-content: center;
   display: flex;
   flex-wrap: wrap;
-  width: 30%;
+  width: 100%;
 }
 
 .watch_separator_container{
   vertical-align: middle;
-  width: 6%;
+  width: 20%;
 }
   
   

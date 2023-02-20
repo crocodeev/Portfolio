@@ -32,21 +32,26 @@ export default function Home() {
             </div>
 
             <div className='row valing-wrapper'>
-              <div className="col s6">
+              
+              <div className="col s7">
+                PLACEHOLDER
+              </div>
+
+              <div className="col s5">
                 <DynamicWatch colorOn="#00f73a" colorOff="#1c1b1b" skew="-5"/>
               </div>
-              <div className="col s6">
-                <div className={styles.text_bage}>
-                  <h5>ALEXANDER</h5>
-                  <h5>CROCODEEV</h5>
-                </div>
-              </div>
+
             </div>
             
         </div>
           <div className='col s6'>
             <Avatar />
           </div>
+      </div>
+      <div className="row">
+        <div className="col s12">
+          <div className={styles.main_title}>ALEXANDER CROCODEEV | FULL STACK DEVELOPER</div>
+        </div>
       </div>
       <div className="row">
         <div className='col s12'>
@@ -71,10 +76,10 @@ export default function Home() {
       <div className="row">
         <div className='col s6'>
         <Frame2
-            tl={true}
-            tr={false}
-            bl={false}
-            br={true}
+            tl={false}
+            tr={true}
+            bl={true}
+            br={false}
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}
             filterHeight={100}
@@ -84,16 +89,16 @@ export default function Home() {
             type={EBullet.link}
             strokeColor='#00f73a' 
             items={[
-            <Link key={1} href="/projects/master_brain">MASTER BRAIN</Link>,
-            <Link key={2} href="/projects/fifteen_game">FIFTEEN GAME</Link> ]}/>  
+            <Link key={1} target="_blank" href="/projects/master_brain">MASTER BRAIN</Link>,
+            <Link key={2} target="_blank" href="/projects/fifteen_game">FIFTEEN GAME</Link> ]}/>  
           </Frame2>
         </div>
         <div className='col s6'>
         <Frame2
-            tl={true}
-            tr={false}
-            bl={false}
-            br={true}
+            tl={false}
+            tr={true}
+            bl={true}
+            br={false}
             label="skills"
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}
@@ -115,10 +120,10 @@ export default function Home() {
       <div className='row'>
         <div className='col s6'>
         <Frame2
-            tl={true}
-            tr={false}
-            bl={false}
-            br={true}
+            tl={false}
+            tr={true}
+            bl={true}
+            br={false}
             label="goals"
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}
@@ -132,10 +137,10 @@ export default function Home() {
         </div>
         <div className='col s6'>
           <Frame2
-            tl={true}
-            tr={false}
-            bl={false}
-            br={true}
+            tl={false}
+            tr={true}
+            bl={true}
+            br={false}
             label="achievements"
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}
@@ -156,10 +161,10 @@ export default function Home() {
       <div className="row">
         <div className="col s12">
         <Frame2
-            tl={true}
-            tr={false}
-            bl={false}
-            br={true}
+            tl={false}
+            tr={true}
+            bl={true}
+            br={false}
             label="passions"
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}

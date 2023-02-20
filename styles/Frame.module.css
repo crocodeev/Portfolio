@@ -1,13 +1,16 @@
 
 .frame_label_top {
     background-color: hsla(128, 100%, 24%);
-    font-size: 0.92rem;
+    font-size: 1.1rem;
     display: inline-block;
-    padding: 0.125em 0.75em;
+    position: relative;
+    left: 0.16em;  
+    padding: 0.3em 0.75em;
     padding-right: 2em;
     letter-spacing: 0.065em;
     line-height: 1;
     text-transform: uppercase;
+    margin-bottom: -1px;
     vertical-align: bottom; /* inline-block fix */
     clip-path: polygon(
       0.25em 0,

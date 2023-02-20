@@ -7,7 +7,7 @@
     border: 1px solid;
     position: relative;
     transition: width 0.2s;
-    width: 120%;
+    width: 65%;
     clip-path: polygon(
         0 0,
         100% 0,
@@ -33,11 +33,11 @@
   }
 
   .btn_out_clicked{
-    width: 130%;
+    width: 70%;
   }
 
   .btn_in{
-    text-align: justify;
+    display: flex;
     padding-left: 0.5em;
     background-color: black;
     transition: all 0.1s;

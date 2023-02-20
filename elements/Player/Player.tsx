@@ -1,6 +1,6 @@
 import { Howl, Howler } from 'howler';
 import { useRef, useState } from 'react';
-import styles from '../../styles/Player.module.css'
+import styles from '../../styles/Player.module.css';
 import Oscilloscope from './Oscilloscope'; 
 import ControlButton from './ControlButton';
 import TrackBar from './TrackBar';
@@ -116,6 +116,20 @@ const Player = () => {
        }
     }
 
+    const seek = (percent: number) => {
+
+        if(sound.playing()){
+
+            const duration = sound.duration();
+
+            const position = duration * percent / 100;
+
+            sound.seek(position);
+
+        }
+
+    }
+
     const onTrackBarMount = () => {
 
         pointer !== null && (pointer.current = document.getElementById("pointer"))
@@ -222,21 +236,21 @@ const Player = () => {
             <div className="col s2">
                     <div className="row">
                         <ControlButton 
-                            title={"PLAY"} 
+                            title={"play"} 
                             callback={handlePlay}
                             state={state.play}
                             />
                     </div>
                     <div className="row">
                         <ControlButton 
-                            title={"PAUSE"} 
+                            title={"pause"} 
                             callback={handlePause}
                             state={state.pause}
                             />
                     </div>
                     <div className="row">
                         <ControlButton 
-                            title={"STOP"} 
+                            title={"stop"} 
                             callback={handleStop}
                             state={state.stop}
                             />
@@ -248,7 +262,9 @@ const Player = () => {
             </div>
             <div className="row">
                 <div className='col s12'>
-                    <TrackBar callback={onTrackBarMount}/>
+                    <TrackBar 
+                    callback={onTrackBarMount}
+                    seek={seek}/>
                 </div>
             </div>     
         </div>
