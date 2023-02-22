@@ -11,6 +11,7 @@ import FrameFilter from '../elements/Frame/FrameFilter'
 import ListCustom from '../elements/ListCustom/ListCustom'
 import { EBullet } from '../elements/ListCustom/Bullets/types'
 import AboutMe from '../elements/Content/AboutMe'
+import WhoAmI from '../elements/WhoAmI'
 
 
 export default function Home() {
@@ -53,26 +54,7 @@ export default function Home() {
           <div className={styles.main_title}>ALEXANDER CROCODEEV | FULL STACK DEVELOPER</div>
         </div>
       </div>
-      <div className="row">
-        <div className='col s12'>
-        <details>
-        <summary className={styles2.expand_card_summary}>WHO AM I?</summary>
-        <Frame2
-            tl={false}
-            tr={false}
-            bl={false}
-            br={false}
-            animation={{ length: 3000, delay: 0 }} 
-            filterWidth={200}
-            filterHeight={100}
-            label="about me"
-            displayBackground={false}
-            >
-              <AboutMe />
-          </Frame2>
-        </details>
-        </div>
-      </div>
+      <WhoAmI />
       <div className="row">
         <div className='col s6'>
         <Frame2

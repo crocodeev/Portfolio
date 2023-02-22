@@ -2,6 +2,7 @@
 .frame_label_top {
     background-color: hsla(128, 100%, 24%);
     font-size: 1.1rem;
+    color: white;
     display: inline-block;
     position: relative;
     left: 0.16em;  
@@ -20,11 +21,13 @@
       0 100%,
       0 0.25em
     );
+    transition: padding-right 0.25s ease-in-out;
   }
 
 .frame_label_bottom{
   background-color: hsla(128, 100%, 24%);
   font-size: 0.92rem;
+  color: white;
   display: inline-block;
   position: relative;
   left: 0.16em;

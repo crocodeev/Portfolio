@@ -11,7 +11,7 @@ type TFrame = {
     tr: boolean,
     bl: boolean,
     br: boolean,
-    label: string,
+    label?: string,
     children: React.ReactNode,
     animation: any,
     cornerSize?: number,
@@ -55,11 +55,13 @@ const Frame2 = ({tl,
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
 
-            <label 
-            className={styles.frame_label_top}
-            ref={label_ref} >
-                {label}
-            </label>
+            {
+                 
+                label  &&  <label className={styles.frame_label_top} ref={label_ref} >
+                    {label}
+                </label>
+
+            }
 
         <div className={styles.hud_card_container}>
             {/*Clippath background*/}

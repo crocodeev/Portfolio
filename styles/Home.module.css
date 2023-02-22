@@ -407,6 +407,27 @@ pallet
   font-size: 2.6vw;
 }
 
+.about_container{
+  display: flex;
+  user-select: none;
+  font-size: 1.5em;
+}
+
+.about_container:hover{
+  color: white;
+}
+
+.about_icon{
+  transform-origin: center;
+  font-size: 1.5em;
+  rotate: 0deg;
+  transition: transform 0.2s;
+}
+
+.about_icon_expand{
+  transform: rotate(-90deg);
+}
+
 @keyframes scan-line {
   
   from {
@@ -416,4 +437,28 @@ pallet
   to {
     top: 100%;
   }
+}
+
+/* link bar*/
+
+.link_bar_container{
+  overflow: hidden;
+  text-align: right;
+  margin: 0px;
+}
+
+.link_bar_list{
+  list-style: none;
+  padding: 0;
+  margin-top: 1%;
+  margin-left: -6px;
+}
+
+.link_bar_item{
+  display: inline;
+  white-space: nowrap;
+}
+
+.link_bar_item:before {
+  content: " | ";
 }
