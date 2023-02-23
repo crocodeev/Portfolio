@@ -44,10 +44,9 @@ const Collapsible = ({item, strokeColor}:TCollapsible) => {
             return(
                 <li key={index} style={{ 
                     userSelect: "none", 
-                    fontSize: "0.8em", 
+                    fontSize: "1em", 
                     margin: "0.2em",
-                    fontFamily: "Roboto Light",
-                    fontSize: "1em" }}>{item}</li>
+                    fontFamily: "Roboto Light"}}>{item}</li>
             )
         });
 
