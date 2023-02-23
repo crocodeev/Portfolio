@@ -27,6 +27,16 @@ pallet
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Roboto Light";
+  src: url('../public/fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family: "Roboto LightItalic";
+  src: url('../public/fonts/Roboto-LightItalic.ttf');
+}
+
 @keyframes flicker {
   0% {
   opacity: 0.27861;
@@ -205,6 +215,7 @@ pallet
   --color-yellow-bright: #ffff00;
   --color-green: #00f73a;
   --colors-green-dark: rgb(0, 124, 17);
+  --colors-green-grey: rgb(28, 58, 32);
   --color-blue-ligth: #5be3e3;
   --color-blue:#29adff;
   --color-brown-dark:#6d4626;
@@ -315,7 +326,6 @@ pallet
   border: 0;
   box-shadow: none;
   color: var(--colors-primary--500);
-  font-family: var(--fonts-primary);
   font-size: 1rem;
   letter-spacing: 0.045em;
   outline: none;
@@ -334,7 +344,6 @@ pallet
 .player_btn{
   background-color: var(--colors-primary--600);
   color: var(--colors-on_primary--500);
-  font-family: var(--fonts-secondary);
   font-size: 0.92rem;
   display: inline-block;
   padding: 0.125em 0.75em;
@@ -442,23 +451,45 @@ pallet
 /* link bar*/
 
 .link_bar_container{
-  overflow: hidden;
-  text-align: right;
-  margin: 0px;
+  display: flex;
+  justify-content: right;
+  margin-left: 1%;
 }
 
 .link_bar_list{
+  
+  font-family: "Roboto Light";
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  padding: 0;
-  margin-top: 1%;
-  margin-left: -6px;
+  margin-left: -3ch;
+  margin-top: 0;
+  clip-path: inset(0 0 0 3ch);
+
 }
 
 .link_bar_item{
   display: inline;
   white-space: nowrap;
+  padding-left: 1ch;
 }
 
 .link_bar_item:before {
-  content: " | ";
+  content: "|";
+  display: inline-block;
+  margin-right: 1ch;
+  width: 1ch;
+  text-align: center;
+}
+
+.track_label{
+  font-family: "Roboto LightItalic";
+  color: var(-colors-green-grey);
+  font-size: 14px;
+  text-align: justify;
+  vertical-align: middle;
+}
+
+.roboto{
+  font-family: "Roboto Light";
 }

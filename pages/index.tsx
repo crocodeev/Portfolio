@@ -12,6 +12,11 @@ import ListCustom from '../elements/ListCustom/ListCustom'
 import { EBullet } from '../elements/ListCustom/Bullets/types'
 import AboutMe from '../elements/Content/AboutMe'
 import WhoAmI from '../elements/WhoAmI'
+import Achievements from '../elements/Content/Achievements'
+import Passions from '../elements/Content/Passions'
+import Goals from '../elements/Content/Goals'
+import Etudes from '../elements/Content/Etudes'
+import Skills from '../elements/Content/Skills'
 
 
 export default function Home() {
@@ -35,7 +40,9 @@ export default function Home() {
             <div className='row valing-wrapper'>
               
               <div className="col s7">
-                PLACEHOLDER
+                <div className={styles.track_label}>
+                  by the way, this track created by me:)
+                </div>
               </div>
 
               <div className="col s5">
@@ -68,11 +75,8 @@ export default function Home() {
             label="react etudes"
             >
             <ListCustom 
-            type={EBullet.link}
             strokeColor='#00f73a' 
-            items={[
-            <Link key={1} target="_blank" href="/projects/master_brain">MASTER BRAIN</Link>,
-            <Link key={2} target="_blank" href="/projects/fifteen_game">FIFTEEN GAME</Link> ]}/>  
+            items={Etudes} />  
           </Frame2>
         </div>
         <div className='col s6'>
@@ -86,16 +90,9 @@ export default function Home() {
             filterWidth={200}
             filterHeight={100}
             >
-            <ListCustom 
-            type={EBullet.collapsible}
+            <ListCustom
             strokeColor='#00f73a' 
-            items={[{
-              title: "JS",
-              collection: ["Electron", "React", "Node"]
-            }, {
-              title: "OTHER (a little bit)",
-              collection: ["Python", "Powershell", "Bash", "Docker"]
-            }]}/>  
+            items={Skills}/>  
           </Frame2>
         </div>
       </div>
@@ -111,10 +108,9 @@ export default function Home() {
             filterWidth={200}
             filterHeight={100}
             >
-            <ListCustom 
-            type={EBullet.todo}
+            <ListCustom
             strokeColor='#00f73a' 
-            items={["Study Rust", "WASM", "Create game for zx spectrum"]}/>  
+            items={Goals}/>  
           </Frame2>
         </div>
         <div className='col s6'>
@@ -129,14 +125,8 @@ export default function Home() {
             filterHeight={100}
             >
               <ListCustom 
-                type={EBullet.passion}
                 strokeColor='#00f73a' 
-                items={["audio player, based on electronjs and used on production", 
-                "custom linux image for it and deployed on WDS",
-                "notification telegram bot",
-                "webapp telegram bot",
-                "corporate wiki",
-                "different scripts and utils to simplify workflow"]}/>
+                items={Achievements}/>
           </Frame2>
         </div>
       </div>
@@ -153,11 +143,8 @@ export default function Home() {
             filterHeight={100}
             >
               <ListCustom 
-                type={EBullet.passion}
                 strokeColor='#00f73a' 
-                items={["motorcycles (especially oldtimers)", 
-                "music (electric guitar)", 
-                "microcontroller (arduino, esp)"]}/>
+                items={Passions}/>
           </Frame2>  
         </div>
       </div>

@@ -3,19 +3,23 @@ import styles from "../../styles/Home.module.css"
 const links = [
     {
         name: "GitHub",
-        href: "https://www.youtube.com/watch?v=-9vzxbvnA8k"
+        href: "https://github.com/crocodeev"
     },
     {
         name: "LinkedIn",
-        href: "https://www.youtube.com/watch?v=-9vzxbvnA8k"
+        href: "https://www.linkedin.com/feed/"
     },
     {
-        name: "HeadHunter",
-        href: "https://www.youtube.com/watch?v=-9vzxbvnA8k"
+        name: "CodePen",
+        href: "https://codepen.io/crocodeev"
     },
     {
         name: "Mail",
-        href: "https://www.youtube.com/watch?v=-9vzxbvnA8k"
+        href: "mailto:svin862003@gmail.ru"
+    },
+    {
+        name: "Telegram",
+        href: "https://telegram.me/crocodeev"
     }
 ]
 

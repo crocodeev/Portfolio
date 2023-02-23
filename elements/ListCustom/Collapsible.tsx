@@ -1,15 +1,25 @@
 import Bullet3 from "./Bullets/Bullet3"
 import { useRef, useState } from "react"
+import styles from "../../styles/Home.module.css"
 
 type TCollapsible = {
     item:{
         title: string,
-        collection: Array<string>
+        details?: {
+            description: string,
+            link?: string
+        },
+        collection?: Array<string>,
     },
     strokeColor: string   
 }
 
 const Collapsible = ({item, strokeColor}:TCollapsible) => {
+
+    console.log("Collapsible");
+    
+    console.log(item);
+    
 
     const [isOpen, setIsOpen ] = useState(false)
 
@@ -25,33 +35,68 @@ const Collapsible = ({item, strokeColor}:TCollapsible) => {
 
         setIsOpen(!isOpen)
 
-    } 
-
-    const childrens = item.collection.map((item, index) => {
-        return(
-            <li key={index} style={{ userSelect: "none", fontSize: "0.8em", margin: "0.2em" }}>{item}</li>
-        )
-    });
-
-    const subList = <ul>{childrens}</ul>
+    }
     
 
-    return(
-        <div 
-            style={{ display: "flex", margin: "10px" }}
-            onClick={handleClick}
-        >
-                <Bullet3 strokeColor={strokeColor} ref={bulletMicroAnimation}/>       
-                <div  style={{ marginTop: "2px", marginLeft: "10px", userSelect: "none"}}>
-                    {item.title}  
+    if(item.hasOwnProperty("collection")){
 
-                    <div style={{ margin: "5px"}}>
-                    { isOpen ? subList : null}  
-                    </div> 
+        const childrens = item.collection?.map((item, index) => {
+            return(
+                <li key={index} style={{ 
+                    userSelect: "none", 
+                    fontSize: "0.8em", 
+                    margin: "0.2em",
+                    fontFamily: "Roboto Light",
+                    fontSize: "1em" }}>{item}</li>
+            )
+        });
 
-                </div>      
+        const subList = <ul>{childrens}</ul>
+
+        return(
+            <div 
+                style={{ display: "flex", margin: "10px" }}
+                onClick={handleClick}
+            >
+                    <Bullet3 strokeColor={strokeColor} ref={bulletMicroAnimation}/>       
+                    <div  style={{ marginTop: "2px", marginLeft: "10px", userSelect: "none"}}>
+                        {item.title}  
+    
+                        <div style={{ margin: "5px"}}>
+                        { isOpen ? subList : null}  
+                        </div> 
+    
+                    </div>      
+                </div>
+        )
+
+    }else{
+
+        const content = (
+            <div>
+                <p className={styles.roboto}>{ item.details && item.details.description}</p>
+                { item.details?.link && <a className={styles.roboto} target="_blank" href={item.details.link}>link</a>}
             </div>
-    )
+        )
+
+        return(
+            <div 
+                style={{ display: "flex", margin: "10px" }}
+                onClick={handleClick}
+            >
+                    <Bullet3 strokeColor={strokeColor} ref={bulletMicroAnimation}/>       
+                    <div  style={{ marginTop: "2px", marginLeft: "10px", userSelect: "none"}}>
+                        {item.title}  
+    
+                        <div style={{ margin: "5px"}}>
+                        { isOpen ? content : null}  
+                        </div> 
+    
+                    </div>      
+                </div>
+        )
+
+    }
 
 }
 

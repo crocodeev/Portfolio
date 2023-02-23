@@ -4,11 +4,9 @@ import ListItem from "./ListItem"
 
 type TListCustom = {
     items: Array<any>
-    strokeColor: string
-    type: EBullet  }
+    strokeColor: string}
 
 const ListCustom = ({items, strokeColor, type}: TListCustom) => {
-
 
     return(
         <div>
@@ -16,11 +14,10 @@ const ListCustom = ({items, strokeColor, type}: TListCustom) => {
 
                 return(
                     <ListItem
-                    key={index}
-                    item={item}
-                    index={index}
-                    strokeColor={strokeColor}
-                    type={type}
+                        key={index}
+                        item={item}
+                        index={index}
+                        strokeColor={strokeColor}
                     />
                 )
             })}

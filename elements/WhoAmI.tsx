@@ -21,7 +21,7 @@ const WhoAmI = () => {
 
     return(
         <>
-        <div className="row">
+        <div className="row" style={{ marginBottom: "5%"}}>
             <div className="col s6" >
                 <div
                 className={styles.about_container}
