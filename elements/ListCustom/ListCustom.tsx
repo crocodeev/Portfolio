@@ -1,4 +1,3 @@
-import { EBullet } from "./Bullets/types"
 import ListItem from "./ListItem"
 
 
@@ -6,7 +5,7 @@ type TListCustom = {
     items: Array<any>
     strokeColor: string}
 
-const ListCustom = ({items, strokeColor, type}: TListCustom) => {
+const ListCustom = ({items, strokeColor}: TListCustom) => {
 
     return(
         <div>

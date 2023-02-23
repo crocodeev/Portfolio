@@ -90,26 +90,6 @@ const ListItem = ({ strokeColor, index, item }: TListItem) => {
                 </div>
             </div>)
     }
-
-    if(type === EBullet.collapsible){
-
-        
-
-    }else{
-        return(
-            <div 
-                key={index} 
-                style={{ display: "flex", margin: "10px" }}
-                onMouseEnter={() => {bulletMicroAnimation.current !==null && bulletMicroAnimation.current.on()}}
-                onMouseLeave={() => {bulletMicroAnimation.current !==null && bulletMicroAnimation.current.off()}}
-            >
-                {Bullet}
-                <div  style={{ marginTop: "2px", marginLeft: "10px" }}>
-                    {item}
-                </div>
-            </div>
-        )
-    }    
 }
 
 
