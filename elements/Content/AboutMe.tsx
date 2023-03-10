@@ -20,24 +20,24 @@ const AboutMe = () => {
                     <h6>1</h6>    
                     <p className={styles.roboto}>
                     to automate routine animation in after effect, 
-                    I learned how to write expression (AE use JS as an expression language),
+                    I have learned how to write expression (AE use JS as an expression language),
                     <a href="https://www.youtube.com/watch?v=-9vzxbvnA8k">here</a> example of animation
                     </p>
 
                     <h6>2</h6>
                     <p className={styles.roboto}>
-                    then I automated some routine for me and colleagues using powershell and bash (on RPI),
-                    started managing servers at work
+                    then I automated some routine workflow for me and colleagues using powershell and bash (on RPI),
+                    and started managing servers at work
                     </p>
 
                     <h6>3</h6>
                     <p className={styles.roboto}>
-                    took a JS course at LevelUp school 
+                    took a JS course at LevelUp school to better understand how web works
                     </p>
 
                     <h6>4</h6>
                     <p className={styles.roboto}>
-                        during the quarantine made PoC audio player on Electron JS
+                    during the quarantine I've made PoC audio player on Electron JS
                     </p>
 
                     <h5>Now:</h5>
