@@ -72,7 +72,7 @@ export default function Home() {
             animation={{ length: 3000, delay: 0 }} 
             filterWidth={200}
             filterHeight={100}
-            label="react etudes"
+            label="reactive etudes"
             >
             <ListCustom 
             strokeColor='#00f73a' 
