@@ -1,3 +1,1 @@
-import Frame from './Frame.tsx'
-
-export { Frame }
+export { Frame } from './Frame.tsx';

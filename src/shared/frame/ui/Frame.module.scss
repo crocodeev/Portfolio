@@ -1,0 +1,29 @@
+.test {
+    
+}
+
+.frame__grid {
+    display: grid;
+}
+
+.svg {
+    overflow: visible;
+    &__stroke {
+        fill: none;
+        stroke-miterlimit: 10;
+        
+        &_glow {
+            stroke-width: 3px;
+            animation-name: glow;
+        }
+
+        &_bottom {
+            stroke-width: 1.5px;
+        }
+
+        &_top {
+            stroke-width: 1px;
+        }
+    }
+
+}
